@@ -62,43 +62,15 @@
 
   <!-- 引入 Firebase -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-    // 修正後的 Firebase 設定物件
-    ***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-
-    // 初始化 Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // 監聽資料庫中的數字變化
-    const docRef = doc(db, "impact", "numbers");
-    onSnapshot(docRef, (doc) => {
-        if (doc.exists()) {
-            const data = doc.data();
-            updateNumbersOnPage(data);
-        } else {
-            console.log("找不到影響力數字的資料！");
-            updateNumbersOnPage({ talent: 0, partners: 0, jobs: 0 });
-        }
-    }, (error) => {
-        console.error("讀取影響力數字時發生錯誤:", error);
-    });
+    // 使用 Firebase Hosting 的保留 URL 載入 SDK
+    import { initializeApp } from "/__/firebase/11.6.1/firebase-app.js";
+    import { getFirestore, doc, onSnapshot } from "/__/firebase/11.6.1/firebase-firestore.js";
 
     // 更新頁面上的數字（帶有動畫效果）
     function updateNumbersOnPage(data) {
-        animateValue(document.getElementById('talent-number'), 0, data.talent, 1500);
-        animateValue(document.getElementById('partners-number'), 0, data.partners, 1500);
-        animateValue(document.getElementById('jobs-number'), 0, data.jobs, 1500);
+        animateValue(document.getElementById('talent-number'), 0, data.talent || 0, 1500);
+        animateValue(document.getElementById('partners-number'), 0, data.partners || 0, 1500);
+        animateValue(document.getElementById('jobs-number'), 0, data.jobs || 0, 1500);
     }
     
     // 數字滾動動畫函式
@@ -116,6 +88,43 @@
       window.requestAnimationFrame(step);
     }
 
+    // 異步初始化 Firebase 並監聽數據
+    async function initializeAndListen() {
+      try {
+        // 從 Firebase Hosting 自動產生的設定檔中取得設定
+        const response = await fetch('/__/firebase/init.json');
+        const firebaseConfig = await response.json();
+        
+        // 使用獲取的設定初始化 Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // 監聽資料庫中的數字變化
+        const docRef = doc(db, "impact", "numbers");
+        onSnapshot(docRef, (doc) => {
+            if (doc.exists()) {
+                const data = doc.data();
+                updateNumbersOnPage(data);
+            } else {
+                console.log("找不到影響力數字的資料！");
+                // 如果找不到資料，顯示 0
+                updateNumbersOnPage({ talent: 0, partners: 0, jobs: 0 });
+            }
+        }, (error) => {
+            console.error("讀取影響力數字時發生錯誤:", error);
+            // 發生錯誤時，也顯示 0
+            updateNumbersOnPage({ talent: 0, partners: 0, jobs: 0 });
+        });
+
+      } catch (e) {
+        console.error("Firebase 初始化失敗:", e);
+        // 初始化失敗時，也顯示 0
+        updateNumbersOnPage({ talent: 0, partners: 0, jobs: 0 });
+      }
+    }
+
+    // 執行初始化
+    initializeAndListen();
   </script>
 </head>
 <body>

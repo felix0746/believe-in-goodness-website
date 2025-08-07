@@ -18,25 +18,9 @@
     <!-- 引入 Firebase -->
     <script type="module">
         // 匯入 Firebase 所需的函式
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // 修正後的 Firebase 設定物件
-        ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-    ***REMOVED***
-
-        // 初始化 Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
+        import { initializeApp } from "/__/firebase/11.6.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "/__/firebase/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc } from "/__/firebase/11.6.1/firebase-firestore.js";
 
         // --- DOM 元素 ---
         const loginSection = document.getElementById('login-section');
@@ -51,62 +35,113 @@
         const partnersInput = document.getElementById('partners-input');
         const jobsInput = document.getElementById('jobs-input');
         const statusMessage = document.getElementById('status-message');
+        
+        // --- 異步初始化 Firebase ---
+        async function initializeFirebase() {
+            try {
+                // 從 Firebase Hosting 自動產生的設定檔中取得設定
+                const response = await fetch('/__/firebase/init.json');
+                const firebaseConfig = await response.json();
+                
+                // 使用獲取的設定初始化 Firebase
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+                const auth = getAuth(app);
 
-        // --- 驗證邏輯 ---
+                // 設定完成後，綁定所有事件監聽器
+                setupAuthListeners(auth, db);
+                setupFormListeners(auth, db);
 
-        // 監聽使用者登入狀態
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // 使用者已登入
-                loginSection.style.display = 'none';
-                adminPanel.style.display = 'block';
-                loadCurrentNumbers(); // 載入資料
-            } else {
-                // 使用者已登出
+            } catch (e) {
+                console.error("Firebase 初始化失敗:", e);
+                loginError.textContent = '無法連接到後台服務，請檢查網路或稍後再試。';
                 loginSection.style.display = 'block';
                 adminPanel.style.display = 'none';
             }
-        });
-
-        // Email/密碼 登入
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = emailInput.value;
-            const password = passwordInput.value;
-            loginError.textContent = ''; // 清除舊的錯誤訊息
-
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-                // 登入成功，onAuthStateChanged 會自動處理後續
-            } catch (error) {
-                console.error("登入失敗:", error);
-                switch (error.code) {
-                    case 'auth/user-not-found':
-                    case 'auth/wrong-password':
-                    case 'auth/invalid-credential':
-                        loginError.textContent = '電子郵件或密碼錯誤。';
-                        break;
-                    default:
-                        loginError.textContent = '登入時發生錯誤，請稍後再試。';
+        }
+        
+        // --- 設定驗證邏輯 ---
+        function setupAuthListeners(auth, db) {
+            // 監聽使用者登入狀態
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    loginSection.style.display = 'none';
+                    adminPanel.style.display = 'block';
+                    loadCurrentNumbers(db); // 載入資料
+                } else {
+                    loginSection.style.display = 'block';
+                    adminPanel.style.display = 'none';
                 }
-            }
-        });
+            });
 
-        // 登出
-        logoutButton.addEventListener('click', async () => {
-            try {
-                await signOut(auth);
-                // 登出成功，onAuthStateChanged 會自動處理後續
-            } catch (error) {
-                console.error("登出失敗:", error);
-                alert("登出時發生錯誤。");
-            }
-        });
+            // 登出
+            logoutButton.addEventListener('click', async () => {
+                try {
+                    await signOut(auth);
+                } catch (error) {
+                    console.error("登出失敗:", error);
+                    alert("登出時發生錯誤。");
+                }
+            });
+        }
+        
+        // --- 設定表單事件 ---
+        function setupFormListeners(auth, db) {
+            // Email/密碼 登入
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = emailInput.value;
+                const password = passwordInput.value;
+                loginError.textContent = ''; // 清除舊的錯誤訊息
 
+                try {
+                    await signInWithEmailAndPassword(auth, email, password);
+                } catch (error) {
+                    console.error("登入失敗:", error);
+                    switch (error.code) {
+                        case 'auth/user-not-found':
+                        case 'auth/wrong-password':
+                        case 'auth/invalid-credential':
+                            loginError.textContent = '電子郵件或密碼錯誤。';
+                            break;
+                        default:
+                            loginError.textContent = '登入時發生錯誤，請稍後再試。';
+                    }
+                }
+            });
+
+            // 更新數字到資料庫
+            updateForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                statusMessage.textContent = '更新中...';
+                statusMessage.style.color = '#333';
+
+                if (!auth.currentUser) {
+                    statusMessage.textContent = '驗證已過期，請重新整理頁面再試。';
+                    statusMessage.style.color = 'red';
+                    return;
+                }
+
+                const newData = {
+                    talent: parseInt(talentInput.value, 10),
+                    partners: parseInt(partnersInput.value, 10),
+                    jobs: parseInt(jobsInput.value, 10)
+            ***REMOVED***
+
+                try {
+                    await setDoc(doc(db, "impact", "numbers"), newData, { merge: true });
+                    statusMessage.textContent = '✅ 數字已成功更新！';
+                    statusMessage.style.color = 'green';
+                } catch (error) {
+                    console.error("更新數據時發生錯誤: ", error);
+                    statusMessage.textContent = '更新失敗，請檢查 Firebase 安全規則或網路連線。';
+                    statusMessage.style.color = 'red';
+                }
+            });
+        }
+        
         // --- 資料庫邏輯 ---
-
-        // 載入目前的數字
-        async function loadCurrentNumbers() {
+        async function loadCurrentNumbers(db) {
             const docRef = doc(db, "impact", "numbers");
             try {
                 const docSnap = await getDoc(docRef);
@@ -125,35 +160,8 @@
             }
         }
 
-        // 更新數字到資料庫
-        updateForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            statusMessage.textContent = '更新中...';
-            statusMessage.style.color = '#333';
-
-            // 確保使用者已登入
-            if (!auth.currentUser) {
-                statusMessage.textContent = '驗證已過期，請重新整理頁面再試。';
-                statusMessage.style.color = 'red';
-                return;
-            }
-
-            const newData = {
-                talent: parseInt(talentInput.value, 10),
-                partners: parseInt(partnersInput.value, 10),
-                jobs: parseInt(jobsInput.value, 10)
-        ***REMOVED***
-
-            try {
-                await setDoc(doc(db, "impact", "numbers"), newData, { merge: true });
-                statusMessage.textContent = '✅ 數字已成功更新！';
-                statusMessage.style.color = 'green';
-            } catch (error) {
-                console.error("更新數據時發生錯誤: ", error);
-                statusMessage.textContent = '更新失敗，請檢查 Firebase 安全規則或網路連線。';
-                statusMessage.style.color = 'red';
-            }
-        });
+        // --- 執行初始化 ---
+        initializeFirebase();
     </script>
 </head>
 <body>
