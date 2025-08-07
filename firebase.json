@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "target": "believe-in-kinnoess92eb6-e090a",
+    "public": "templates",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+} 

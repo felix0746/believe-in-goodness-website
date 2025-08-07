@@ -1,0 +1,6 @@
+# Allow all user agents to crawl all content
+User-agent: *
+Disallow:
+
+# Sitemap location
+Sitemap: https://believe-in-kinnoess92eb6-e090a.web.app/sitemap.xml
