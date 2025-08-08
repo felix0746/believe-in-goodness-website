@@ -126,7 +126,7 @@
                     talent: parseInt(talentInput.value, 10),
                     partners: parseInt(partnersInput.value, 10),
                     jobs: parseInt(jobsInput.value, 10)
-            ***REMOVED***
+                };
 
                 try {
                     await setDoc(doc(db, "impact", "numbers"), newData, { merge: true });
