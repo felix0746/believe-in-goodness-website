@@ -6,7 +6,7 @@
   "hosting": [
     {
       "target": "miss-blog-backend-92eb6",
-      "public": "templates",
+      "public": "my-other-site",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -21,7 +21,7 @@
     },
     {
       "target": "believe-in-kinnoess92eb6-e090a",
-      "public": "templates",
+      "public": "believe-in-goodness",
       "ignore": [
         "firebase.json",
         "**/.*",
