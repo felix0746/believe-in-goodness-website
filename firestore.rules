@@ -1,16 +1,12 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // 允許公開讀取影響力數據
-    match /impact/{document} {
-      allow read: if true;  // 任何人都可以讀取
-      allow write: if request.auth != null;  // 只有已驗證的使用者可以寫入
-    }
-    
-    // 其他集合的預設規則
+    // 預設規則：
+    // 1. 允許任何人讀取任何文件 (讓 impact.html 等公開頁面可以顯示資料)
+    // 2. 只允許經過驗證 (已登入) 的使用者寫入任何文件 (讓 admin.html 可以更新資料)
     match /{document=**} {
-      allow read: if true;  // 允許公開讀取所有文件
-      allow write: if false; // 預設拒絕所有寫入操作
+      allow read: if true;
+      allow write: if request.auth != null;
     }
   }
-} 
+}

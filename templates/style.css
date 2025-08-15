@@ -1277,4 +1277,206 @@ main {
     max-width: 280px;
     margin: 0 auto;
   }
+  
+  /* === 聯絡我們頁面手機版優化 (2024-07-26) === */
+
+  .contact-intro-section,
+  .contact-cards-section,
+  .location-section {
+    padding: 3rem 1.5rem;
+  }
+
+  /* 隱藏立即聯繫區塊，簡化頁面 */
+  .immediate-contact-section {
+    display: none;
+  }
+
+  .contact-details-section {
+    padding-bottom: 3rem;
+  }
+
+  .contact-details-section .container {
+    padding: 3rem 1.5rem;
+    transform: translateY(-60px); /* 減少重疊 */
+  }
+
+  /* 再次縮小聯絡資訊卡片 */
+  .contact-details-section .contact-grid {
+    gap: 0.8rem;
+    grid-template-columns: 1fr; /* 手機版改為單欄 */
+  }
+
+  .contact-details-section .contact-card {
+    padding: 1.2rem 1.5rem; /* 增加左右內距 */
+    flex-direction: row; /* 圖示與文字水平排列 */
+    justify-content: flex-start; /* 內容靠左 */
+  }
+
+  .contact-details-section .contact-text {
+    text-align: left; /* 文字靠左對齊 */
+  }
+}
+
+/* === 新增的聯絡我們頁面樣式 (2024-07-26) === */
+
+.contact-intro-section {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contact-intro-section h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.contact-cards-section {
+  padding: 5rem 2rem;
+  background-color: #f8f9fa; /* 淺灰色背景 */
+}
+
+/* 複用 .services-grid 和 .service-card */
+.contact-cards-section .services-grid {
+  margin-bottom: 3rem;
+}
+
+.contact-cards-section .service-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: none;
+}
+
+.contact-cards-section .service-card p {
+    min-height: 40px; /* 給予最小高度以對齊 */
+}
+
+/* 複用 .contact-welcome, .contact-action, .contact-form-btn */
+.contact-cards-section .contact-welcome {
+  margin-top: 4rem;
+}
+
+
+.immediate-contact-section {
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+}
+
+.immediate-contact-box {
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.immediate-contact-box h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin: 0 0 2rem 0;
+}
+
+.immediate-contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.immediate-contact-item a {
+    background-color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.immediate-contact-item a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.immediate-contact-item i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+/* 複用 .location-section, .map-container */
+.location-section {
+    background-color: rgba(20, 59, 98, 0.1);
+    padding: 5rem 2rem;
+}
+.location-header h2,
+.location-header p {
+    color: var(--text-color);
+}
+
+.map-card-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+/* 複用 .contact-details-section, .contact-grid */
+.contact-details-section {
+    background-color: rgba(20, 59, 98, 0.1);
+    padding-top: 0; /* 因爲背景色和上方一樣，取消上方padding */
+    padding-bottom: 5rem;
+}
+
+.contact-details-section .container {
+    background-color: white;
+    padding: 4rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transform: translateY(-80px); /* 向上移動，疊在上方區塊 */
+}
+
+.contact-details-section h2 {
+    margin-top: 0;
+    margin-bottom: 3rem; /* 減少與下方卡片的距離 */
+}
+
+/* 複用 .contact-card */
+.contact-details-section .contact-grid {
+    gap: 1.2rem; /* 再次縮小卡片間距 */
+}
+
+.contact-details-section .contact-card {
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    box-shadow: none;
+    padding: 1.5rem; /* 再次減少內距 */
+}
+
+.contact-details-section .contact-icon {
+    font-size: 1.5rem; /* 再次縮小圖示 */
+}
+
+.contact-details-section .contact-text h3 {
+    font-size: 1rem; /* 再次縮小標題 */
+    margin-bottom: 0.2rem;
+}
+
+.contact-details-section .contact-text p {
+    font-size: 0.9rem; /* 再次縮小內文 */
 }

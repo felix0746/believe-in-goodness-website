@@ -18,9 +18,19 @@
     <!-- 引入 Firebase -->
     <script type="module">
         // 匯入 Firebase 所需的函式
-        import { initializeApp } from "/__/firebase/11.6.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "/__/firebase/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, getDoc, setDoc } from "/__/firebase/11.6.1/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCtMlFZVNvUHfvt-6Z03ucLVQdJ7E1o6Iw",
+            authDomain: "miss-blog-backend-92eb6.firebaseapp.com",
+            projectId: "miss-blog-backend-92eb6",
+            storageBucket: "miss-blog-backend-92eb6.firebasestorage.app",
+            messagingSenderId: "674705041997",
+            appId: "1:674705041997:web:e56636babe5a50359f4a04",
+            measurementId: "G-KDY1SRL463"
+        };
 
         // --- DOM 元素 ---
         const loginSection = document.getElementById('login-section');
@@ -36,30 +46,11 @@
         const jobsInput = document.getElementById('jobs-input');
         const statusMessage = document.getElementById('status-message');
         
-        // --- 異步初始化 Firebase ---
-        async function initializeFirebase() {
-            try {
-                // 從 Firebase Hosting 自動產生的設定檔中取得設定
-                const response = await fetch('/__/firebase/init.json');
-                const firebaseConfig = await response.json();
-                
-                // 使用獲取的設定初始化 Firebase
-                const app = initializeApp(firebaseConfig);
-                const db = getFirestore(app);
-                const auth = getAuth(app);
+        // --- 初始化 Firebase ---
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
 
-                // 設定完成後，綁定所有事件監聽器
-                setupAuthListeners(auth, db);
-                setupFormListeners(auth, db);
-
-            } catch (e) {
-                console.error("Firebase 初始化失敗:", e);
-                loginError.textContent = '無法連接到後台服務，請檢查網路或稍後再試。';
-                loginSection.style.display = 'block';
-                adminPanel.style.display = 'none';
-            }
-        }
-        
         // --- 設定驗證邏輯 ---
         function setupAuthListeners(auth, db) {
             // 監聽使用者登入狀態
@@ -161,7 +152,8 @@
         }
 
         // --- 執行初始化 ---
-        initializeFirebase();
+        setupAuthListeners(auth, db);
+        setupFormListeners(auth, db);
     </script>
 </head>
 <body>
