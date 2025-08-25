@@ -1921,8 +1921,10 @@ main {
 }
 
 .accordion-content .care-card-text p {
-  font-size: 0.95rem;
+  font-size: 0.95rem; /* Revert to smaller size for better line flow */
   line-height: 1.8;
+  overflow-wrap: break-word; /* Use this for better wrapping on mobile */
+  text-align: left; /* Revert to left-align for best readability */
 }
 
 /* ================== Care Page (International Content) ================== */
@@ -2036,7 +2038,8 @@ main {
   .care-card-text p {
     line-height: 1.8;
     margin: 0;
-    /* word-break: keep-all;  <-- 在桌面版，因為空間足夠，保留這個設定可以讓排版更美觀 */
+    font-size: 1.1rem; /* 根據建議縮小字體 */
+    word-break: keep-all; /* 優化中文換行 */
   }
   
   .care-card.reversed .care-card-text {
