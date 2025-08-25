@@ -1923,7 +1923,6 @@ main {
 .accordion-content .care-card-text p {
   font-size: 0.95rem;
   line-height: 1.8;
-  word-break: keep-all; /* 避免中文字在詞中間斷開 */
 }
 
 /* ================== Care Page (International Content) ================== */
