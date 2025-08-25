@@ -5,6 +5,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { useState, useEffect } from 'react';
 import { db } from '@/firebase';
 import { doc, getDoc } from 'firebase/firestore';
+import AnimatedNumber from '@/components/AnimatedNumber';
 
 interface ImpactNumbers {
   talent: number;
@@ -85,7 +86,7 @@ export default function ImpactPageClient() {
                   <h3>{t(goal.key)}</h3>
                   <div className="goal-data-wrapper">
                     <div className="goal-number">
-                      {impactNumbers ? impactNumbers[goal.numberKey].toLocaleString() : '...'}
+                      {impactNumbers ? <AnimatedNumber end={impactNumbers[goal.numberKey]} /> : '...'}
                     </div>
                     <hr className="goal-divider" />
                     <p className="goal-unit">{t(goal.unit)}</p>

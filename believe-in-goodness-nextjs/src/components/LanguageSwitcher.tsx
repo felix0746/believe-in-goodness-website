@@ -31,8 +31,8 @@ const LanguageSwitcher = () => {
 
   return (
     <div className="lang-switcher-container" ref={wrapperRef}>
-      <button className="lang-switcher-btn" onClick={() => setIsOpen(!isOpen)}>
-        {language === 'en' ? 'English' : language === 'vi' ? 'Tiếng Việt' : '繁體中文'}
+      <button className="lang-switcher-btn" onClick={() => setIsOpen(!isOpen)} aria-label="Language switcher">
+        <i className="fas fa-globe"></i>
       </button>
       <div className={`lang-dropdown ${isOpen ? 'show' : ''}`}>
         <button onClick={() => handleLanguageChange('zh-Hant')} className="lang-option">繁體中文</button>

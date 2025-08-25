@@ -94,7 +94,31 @@
     "impactGoal3": "創造餐飲就業機會",
     "impactUnitPeople": "人",
     "impactUnitOrganizations": "間",
-    "impactUnitJobs": "份"
+    "impactUnitJobs": "份",
+
+    "storyMessageQuote1": "非常感謝相信善良的幫助，讓我在最困難的時候找到方向，現在的我有了穩定的工作，也重拾了對未來的信心。",
+    "storyMessageAuthor1": "小華，受助學員",
+    "storyMessageQuote2": "與相信善良的合作是一次非常有意義的經驗。看見年輕學員們的成長與轉變，讓我們深刻體會到企業社會責任的價值。",
+    "storyMessageAuthor2": "王經理，合作餐廳",
+    "storyMessageQuote3": "在這裡，我不只學到了一技之長，更感受到家的溫暖。謝謝每一位曾經幫助過我的人。",
+    "storyMessageAuthor3": "阿明，更生學員",
+
+    "storyNewsTitle1": "攜手星級飯店，開啟餐飲新星培育計畫",
+    "storyNewsDate1": "2025年8月15日",
+    "storyNewsExcerpt1": "我們很榮幸地宣布與台北 ABC 飯店達成合作，共同推出為期三個月的密集餐飲技能培訓，為弱勢青年點亮前行的道路...",
+    "storyNewsTitle2": "「善食分享日」活動圓滿落幕",
+    "storyNewsDate2": "2025年7月28日",
+    "storyNewsExcerpt2": "感謝所有參與本次愛心餐會的民眾與志工，您的每一份支持，都將轉化為孩子們溫暖的一餐與學習的機會...",
+    
+    "storyMilestoneDate1": "2024年10月",
+    "storyMilestoneTitle1": "相信善良，正式成立",
+    "storyMilestoneDesc1": "懷抱著「用生命影響生命」的初衷，我們從一個小小的辦公室開始了這段旅程。",
+    "storyMilestoneDate2": "2025年5月",
+    "storyMilestoneTitle2": "首位學員進入職場",
+    "storyMilestoneDesc2": "經過數月的培訓與陪伴，第一位學員成功進入我們的合作餐廳，開啟了人生的新篇章。",
+    "storyMilestoneDate3": "2025年8月",
+    "storyMilestoneTitle3": "合作企業突破20家",
+    "storyMilestoneDesc3": "我們的理念獲得了越來越多企業的認同，共同為社會的善循環盡一份心力。"
   },
   "en": {
     "siteTitle": "Believe in Goodness",
@@ -159,7 +183,31 @@
     "impactGoal3": "Create Culinary Job Opportunities",
     "impactUnitPeople": "People",
     "impactUnitOrganizations": "Orgs",
-    "impactUnitJobs": "Jobs"
+    "impactUnitJobs": "Jobs",
+
+    "storyMessageQuote1": "Thank you so much to Believe in Goodness for helping me find my way during the toughest times. I now have a stable job and have regained confidence in my future.",
+    "storyMessageAuthor1": "Xiao Hua, Program Participant",
+    "storyMessageQuote2": "Collaborating with Believe in Goodness has been a very meaningful experience. Seeing the growth and transformation of the young trainees deeply showed us the value of corporate social responsibility.",
+    "storyMessageAuthor2": "Manager Wang, Partner Restaurant",
+    "storyMessageQuote3": "Here, I not only learned a skill but also felt the warmth of a home. Thank you to everyone who has helped me.",
+    "storyMessageAuthor3": "A-Ming, Rehabilitated Trainee",
+
+    "storyNewsTitle1": "Partnering with a Star Hotel to Launch a New Culinary Star Training Program",
+    "storyNewsDate1": "August 15, 2025",
+    "storyNewsExcerpt1": "We are honored to announce our collaboration with ABC Hotel Taipei to launch a three-month intensive culinary skills training program, lighting the way for disadvantaged youth...",
+    "storyNewsTitle2": "'Good Food Sharing Day' Event Successfully Concluded",
+    "storyNewsDate2": "July 28, 2025",
+    "storyNewsExcerpt2": "Thank you to all the public and volunteers who participated in this charity dinner. Every bit of your support will be transformed into a warm meal and a learning opportunity for the children...",
+    
+    "storyMilestoneDate1": "October 2024",
+    "storyMilestoneTitle1": "Believe in Goodness, Officially Established",
+    "storyMilestoneDesc1": "With the original intention of 'impacting lives with life,' we began this journey from a small office.",
+    "storyMilestoneDate2": "May 2025",
+    "storyMilestoneTitle2": "First Trainee Enters the Workforce",
+    "storyMilestoneDesc2": "After months of training and companionship, our first trainee successfully entered one of our partner restaurants, starting a new chapter in life.",
+    "storyMilestoneDate3": "August 2025",
+    "storyMilestoneTitle3": "Partner Enterprises Exceed 20",
+    "storyMilestoneDesc3": "Our philosophy has gained recognition from an increasing number of enterprises, all contributing to the virtuous cycle of society."
   },
   "vi": {
     "siteTitle": "Tin yêu điều tử tế",
@@ -224,6 +272,30 @@
     "impactGoal3": "Tạo cơ hội việc làm ngành ẩm thực",
     "impactUnitPeople": "người",
     "impactUnitOrganizations": "đơn vị",
-    "impactUnitJobs": "việc làm"
+    "impactUnitJobs": "việc làm",
+
+    "storyMessageQuote1": "Xin chân thành cảm ơn Tin Yêu Điều Tử Tế đã giúp tôi tìm lại phương hướng trong những lúc khó khăn nhất. Giờ đây tôi đã có một công việc ổn định và lấy lại niềm tin vào tương lai.",
+    "storyMessageAuthor1": "Tiểu Hoa, Học viên chương trình",
+    "storyMessageQuote2": "Hợp tác với Tin Yêu Điều Tử Tế là một trải nghiệm vô cùng ý nghĩa. Chứng kiến sự trưởng thành và thay đổi của các bạn học viên trẻ đã cho chúng tôi thấy sâu sắc giá trị của trách nhiệm xã hội của doanh nghiệp.",
+    "storyMessageAuthor2": "Quản lý Vương, Nhà hàng đối tác",
+    "storyMessageQuote3": "Tại đây, tôi không chỉ học được một kỹ năng mà còn cảm nhận được sự ấm áp của một gia đình. Cảm ơn tất cả những người đã giúp đỡ tôi.",
+    "storyMessageAuthor3": "A Minh, Học viên tái hòa nhập",
+
+    "storyNewsTitle1": "Hợp tác với khách sạn sao để khởi động chương trình đào tạo ngôi sao ẩm thực mới",
+    "storyNewsDate1": "Ngày 15 tháng 8 năm 2025",
+    "storyNewsExcerpt1": "Chúng tôi rất vinh dự được công bố hợp tác với Khách sạn ABC Đài Bắc để khởi động chương trình đào tạo kỹ năng ẩm thực chuyên sâu trong ba tháng, thắp sáng con đường cho thanh niên có hoàn cảnh khó khăn...",
+    "storyNewsTitle2": "Sự kiện 'Ngày chia sẻ món ăn ngon' đã kết thúc thành công tốt đẹp",
+    "storyNewsDate2": "Ngày 28 tháng 7 năm 2025",
+    "storyNewsExcerpt2": "Cảm ơn tất cả công chúng và các tình nguyện viên đã tham gia bữa tối từ thiện này. Mỗi sự ủng hộ của bạn sẽ được chuyển thành một bữa ăn ấm áp và một cơ hội học tập cho trẻ em...",
+    
+    "storyMilestoneDate1": "Tháng 10 năm 2024",
+    "storyMilestoneTitle1": "Tin Yêu Điều Tử Tế, chính thức thành lập",
+    "storyMilestoneDesc1": "Với tâm niệm ban đầu là 'dùng sinh mệnh để chạm đến sinh mệnh', chúng tôi đã bắt đầu hành trình này từ một văn phòng nhỏ.",
+    "storyMilestoneDate2": "Tháng 5 năm 2025",
+    "storyMilestoneTitle2": "Học viên đầu tiên gia nhập lực lượng lao động",
+    "storyMilestoneDesc2": "Sau nhiều tháng đào tạo và đồng hành, học viên đầu tiên của chúng tôi đã thành công vào làm việc tại một trong những nhà hàng đối tác, mở ra một chương mới trong cuộc đời.",
+    "storyMilestoneDate3": "Tháng 8 năm 2025",
+    "storyMilestoneTitle3": "Số doanh nghiệp đối tác vượt quá 20",
+    "storyMilestoneDesc3": "Triết lý của chúng tôi đã nhận được sự công nhận từ ngày càng nhiều doanh nghiệp, tất cả cùng nhau đóng góp vào vòng tuần hoàn nhân ái của xã hội."
   }
 }

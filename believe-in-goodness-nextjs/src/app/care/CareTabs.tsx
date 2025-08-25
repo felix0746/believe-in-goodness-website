@@ -124,7 +124,7 @@ const InternationalCareContent = ({ content }: { content: typeof internationalCo
                 {content.map((item) => (
                     <div key={item.titleKey} className="international-care-text-block">
                         <h3>{t(item.titleKey)}</h3>
-                        <p dangerouslySetInnerHTML={{ __html: t(item.textKey) }} />
+                        <p dangerouslySetInnerHTML={{ __html: t(item.textKey).replace(/<br\s*\/?>/g, '') }} />
                     </div>
                 ))}
             </div>

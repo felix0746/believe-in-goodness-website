@@ -203,43 +203,35 @@ p {
 /* === 語言切換選單 === */
 .lang-switcher-container {
     position: relative;
-    margin-left: 1rem;
+    margin-left: 0.5rem; /* Reduce margin for a tighter look */
 }
 .lang-switcher-btn {
     background-color: transparent;
     color: var(--primary-color);
-    padding: 0.5rem 1.5rem 0.5rem 1rem; /* Adjust padding for arrow */
-    border: 1px solid var(--primary-color);
-    border-radius: 20px;
+    border: none;
+    border-radius: 50%; /* Make it a perfect circle */
     cursor: pointer;
-    font-family: var(--font-sans);
     transition: all 0.3s ease;
-    position: relative; /* Needed for pseudo-element positioning */
-    white-space: nowrap; /* Prevent text wrapping */
+    width: 42px; /* Set fixed width */
+    height: 42px; /* Set fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem; /* Adjust icon size */
 }
 
 .scrolled .lang-switcher-btn {
   color: var(--text-color);
-  border-color: #ddd;
 }
 
 .lang-switcher-btn:hover {
-  background-color: var(--primary-color);
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.05); /* Subtle hover effect */
+  transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
+/* Remove the arrow pseudo-element */
 .lang-switcher-btn::after {
-  content: '▼';
-  font-size: 0.6em;
-  position: absolute;
-  right: 0.7rem;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.3s ease;
-}
-
-.lang-switcher-container:hover .lang-switcher-btn::after {
-  transform: translateY(-50%) rotate(180deg);
+  display: none;
 }
 
 .lang-dropdown {
@@ -1578,8 +1570,8 @@ main {
 
 .tab-item {
   flex-grow: 1;
-  padding: 1rem 1.5rem;
-  font-size: 1.1rem;
+  padding: 1rem 0.5rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
   cursor: pointer;
@@ -1591,6 +1583,14 @@ main {
   transition: all 0.3s ease;
   position: relative;
   top: 1px; /* Align with bottom border */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+@media (min-width: 768px) {
+  .tab-item {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
 }
 
 .tab-item:hover {
@@ -1614,6 +1614,249 @@ main {
   color: var(--primary-color);
   margin-bottom: 1.5rem;
   font-family: var(--font-serif);
+}
+
+/* ================== Story Page (Kindness Wall) ================== */
+.kindness-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .kindness-wall {
+    gap: 2rem;
+  }
+}
+
+.kindness-card {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+@media (min-width: 768px) {
+  .kindness-card {
+    padding: 2rem;
+  }
+}
+
+.kindness-card-image-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 768px) {
+  .kindness-card-image-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.kindness-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kindness-card-quote {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  border: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  font-style: italic;
+}
+
+.kindness-card-quote p {
+  margin: 0;
+}
+
+.kindness-card-author {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+
+/* ================== Story Page (News List) ================== */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@media (min-width: 768px) {
+  .news-card {
+    flex-direction: row;
+  }
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.news-card-image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 768px) {
+  .news-card-image-wrapper {
+    width: 250px;
+    height: auto; /* Let aspect ratio handle height */
+  }
+}
+
+.news-card-content {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.news-card-date {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.news-card-title {
+  font-size: 1.4rem;
+  margin: 0 0 0.75rem 0;
+}
+
+.news-card-title a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s;
+}
+
+.news-card-title a:hover {
+  color: var(--accent-color);
+}
+
+.news-card-excerpt {
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
+}
+
+
+/* ================== Story Page (Milestones Timeline) ================== */
+.milestones-timeline {
+  position: relative;
+  padding-left: 1.5rem; /* Space for the timeline line */
+  border-left: 3px solid #e9ecef;
+}
+
+@media (min-width: 768px) {
+  .milestones-timeline {
+    padding-left: 2rem;
+    border-left-width: 4px;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.5rem;
+  transform: translateX(-50%);
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  border: 3px solid #fff;
+}
+
+@media (min-width: 768px) {
+  .timeline-dot {
+    left: -2rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    border-width: 4px;
+  }
+}
+
+.timeline-content {
+  text-align: left;
+  padding-left: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .timeline-content {
+    padding-left: 1rem;
+  }
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .timeline-date {
+    font-size: 0.9rem;
+  }
+}
+
+.timeline-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0 0 0.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .timeline-title {
+    font-size: 1.3rem;
+  }
+}
+
+.timeline-desc {
+  color: #555;
+  margin: 0;
+  line-height: 1.8;
 }
 
 /* ================== Care Page (Content Cards) ================== */
@@ -1679,7 +1922,8 @@ main {
 
 .accordion-content .care-card-text p {
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.8;
+  word-break: keep-all; /* 避免中文字在詞中間斷開 */
 }
 
 /* ================== Care Page (International Content) ================== */
@@ -1701,18 +1945,16 @@ main {
 }
 
 .international-care-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* Gap between text cards */
-  padding: 2rem 1.5rem; /* Padding for the text cards area */
+  background-color: #fff;
+  padding: 2.5rem 2rem; /* Add padding to the unified container */
 }
 
 .international-care-text-block {
-  background-color: #fff; /* White cards on mobile */
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
   text-align: left;
+}
+
+.international-care-text-block:not(:last-child) {
+  margin-bottom: 2.5rem; /* Add space between content blocks */
 }
 
 .international-care-text-block h3 {
@@ -1727,6 +1969,14 @@ main {
   line-height: 1.8;
   font-size: 0.95rem;
   margin: 0;
+  overflow-wrap: break-word; /* 替換 word-break，以防止超長文字溢出 */
+}
+
+.international-care-divider {
+  border: 0;
+  height: 1px;
+  background-color: #e9ecef;
+  margin: 2.5rem 0;
 }
 
 
@@ -1787,6 +2037,7 @@ main {
   .care-card-text p {
     line-height: 1.8;
     margin: 0;
+    /* word-break: keep-all;  <-- 在桌面版，因為空間足夠，保留這個設定可以讓排版更美觀 */
   }
   
   .care-card.reversed .care-card-text {
@@ -1831,16 +2082,26 @@ main {
     justify-content: space-between;
     align-items: flex-end;
     gap: 3rem;
+    background-color: transparent; /* Reset background for desktop */
   }
   
   .international-care-text-block {
-    background-color: transparent; /* Remove background */
-    backdrop-filter: none; /* Remove blur */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent cards on desktop */
+    backdrop-filter: blur(5px);
     color: #fff;
     padding: 2rem;
     flex-basis: 45%; /* Each block takes up 45% of the width */
     max-width: 500px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Add text shadow for readability */
+    border-radius: var(--border-radius);
+  }
+
+  .international-care-text-block:not(:last-child) {
+    margin-bottom: 0; /* No margin needed for flex layout */
+  }
+
+  .international-care-divider {
+    display: none; /* Hide divider on desktop */
   }
 
   .international-care-text-block h3 {
@@ -2047,10 +2308,6 @@ main {
   .goals-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 3 columns on desktop */
     gap: 2rem;
-  }
-
-  .main-nav li:last-child {
-    display: none; /* Hide language switcher from desktop nav list */
   }
 }
 
