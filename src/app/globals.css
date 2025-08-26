@@ -97,6 +97,9 @@ p {
 .main-header.scrolled.menu-open {
   background-color: var(--secondary-color);
   backdrop-filter: none;
+  -webkit-backdrop-filter: none; /* iOS Safari 需要 webkit 前綴 */
+  transform: none; /* 移除任何可能的變形 */
+  position: fixed; /* 確保固定定位 */
 }
 
 .logo-container img {
@@ -1059,6 +1062,14 @@ main {
   font-size: 1.1rem;
 }
 
+/* Responsive adjustments for footer on mobile */
+@media (max-width: 768px) {
+  .contact-info-panel p {
+    font-size: 0.85rem; /* Further reduce font size to prevent wrapping */
+    gap: 0.5rem; /* Reduce gap between icon and text */
+  }
+}
+
 .contact-info-panel i {
   color: var(--accent-color);
   font-size: 1.2rem;
@@ -1175,7 +1186,7 @@ main {
   .main-nav-wrapper {
     position: fixed;
     inset: 0;
-    z-index: 1001; /* 提高層級，確保高於 header (1000) */
+    z-index: 9999; /* 設為最高層級 */
     transform: translateX(100%);
     transition: transform 350ms ease-out;
     background: linear-gradient(180deg, var(--secondary-color), #fff);
