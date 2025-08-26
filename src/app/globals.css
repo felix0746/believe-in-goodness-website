@@ -1173,7 +1173,7 @@ main {
   .main-nav-wrapper {
     position: fixed;
     inset: 0;
-    z-index: 999;
+    z-index: 1001; /* 提高層級，確保高於 header (1000) */
     transform: translateX(100%);
     transition: transform 350ms ease-out;
     background: linear-gradient(180deg, var(--secondary-color), #fff);
