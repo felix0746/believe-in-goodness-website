@@ -275,7 +275,7 @@ p {
 .mobile-nav-toggle {
   display: none;
   position: relative;
-  z-index: 9999;
+  z-index: 10000; /* 比導覽選單更高的層級 */
   background: transparent;
   border: 0;
   cursor: pointer;
@@ -1152,6 +1152,12 @@ main {
 
 /* === 響應式：平板與手機 === */
 @media (max-width: 899px) {
+  /* 防止任何內容元素干擾導覽選單 */
+  body.no-scroll {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+  }
   /* 針對聯繫頁面，使用 flexbox 重新排序以優化手機瀏覽體驗 */
   .contact-page-main {
     display: flex;
@@ -1185,17 +1191,24 @@ main {
   
   .main-nav-wrapper {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     z-index: 9999; /* 設為最高層級 */
     transform: translateX(100%);
     transition: transform 350ms ease-out;
     background: linear-gradient(180deg, var(--secondary-color), #fff);
     padding: 5rem 2rem;
     overflow-y: visible; /* 允許垂直方向的內容溢出，以顯示下拉選單 */
+    -webkit-transform: translateX(100%); /* iOS 相容性 */
   }
   
   .main-nav-wrapper[data-visible="true"] {
     transform: translateX(0);
+    -webkit-transform: translateX(0); /* iOS 相容性 */
   }
 
   .main-nav {
