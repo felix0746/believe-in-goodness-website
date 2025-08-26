@@ -2485,3 +2485,7 @@ main {
     width: 95%;
   }
 }
+
+.main-header:has(.main-nav-wrapper[data-visible="true"]) {
+  z-index: 998; /* 當手機選單展開時，降低 header 的層級，避免裁切問題 */
+}
