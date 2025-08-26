@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/hooks/useTranslation";
-import Script from "next/script";
 
 const notoSerif = Noto_Serif_TC({
   subsets: ["latin"],
@@ -59,7 +58,6 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <Script src="https://kit.fontawesome.com/a076d05399.js" crossOrigin="anonymous" />
         </LanguageProvider>
       </body>
     </html>
