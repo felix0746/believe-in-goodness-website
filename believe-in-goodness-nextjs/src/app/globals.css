@@ -23,3 +23,10 @@ main {
 :root {
   --foreground-rgb: 0, 0, 0;
 }
+
+/* Responsive adjustments for footer on mobile */
+@media (max-width: 768px) {
+  .contact-item span {
+    font-size: 0.875rem; /* Adjust font size to prevent wrapping */
+  }
+}
