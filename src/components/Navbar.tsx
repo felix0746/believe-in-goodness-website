@@ -51,7 +51,7 @@ const Navbar = () => {
   };
   
   return (
-    <header className={`main-header ${isScrolled ? 'scrolled' : ''}`} id="main-header">
+    <header className={`main-header ${isScrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-open' : ''}`} id="main-header">
       <div className="logo-container">
         <Link href="/" onClick={closeMobileMenu}>
           <Image src="/images/logo-text.png" alt="相信善良 logo" width={150} height={50} priority style={{ height: '50px', width: 'auto' }}/>

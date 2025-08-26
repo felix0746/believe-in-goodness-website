@@ -93,8 +93,8 @@ p {
   height: 70px;
 }
 
-/* 當手機選單展開時，移除頁首的模糊效果，以確保選單能正確定位相對於整個視窗 */
-.main-header:has(.main-nav-wrapper[data-visible="true"]).scrolled {
+/* 當手機選單展開時，移除頁首的模糊效果與層級問題 */
+.main-header.scrolled.menu-open {
   background-color: var(--secondary-color);
   backdrop-filter: none;
 }
