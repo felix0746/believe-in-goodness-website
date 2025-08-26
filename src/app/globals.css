@@ -13,7 +13,6 @@
 
 html {
   box-sizing: border-box;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 *, *::before, *::after {
@@ -89,6 +88,7 @@ p {
 .main-header.scrolled {
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari 支援 */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   height: 70px;
 }
@@ -191,7 +191,7 @@ p {
 .dropdown-menu a {
   display: block;
   padding: 0.5rem 1.5rem;
-  color: #333;
+  color: var(--text-color);
   text-decoration: none;
   white-space: nowrap;
   font-size: 0.95rem;
@@ -345,7 +345,7 @@ main {
   border-radius: 1rem;
   padding: 2rem;
   font-size: 1.2rem;
-  color: #333;
+  color: var(--text-color);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
 }
@@ -751,6 +751,7 @@ main {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   align-items: center;
   justify-content: center;
 }
@@ -883,14 +884,13 @@ main {
     margin-top: 0.5rem;
 }
 .goal-unit {
-    display: block;
+    display: inline-block;
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-color);
     border-top: 2px solid var(--accent-color);
     margin-top: 0.5rem;
     padding-top: 0.5rem;
-    display: inline-block;
 }
 
 /* === 後台頁面樣式 === */
@@ -983,6 +983,7 @@ main {
   inset: 0;
   background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
   backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   z-index: 1;
 }
 .footer-overlay {
@@ -2116,6 +2117,7 @@ main {
   .international-care-text-block {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent cards on desktop */
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     color: #fff;
     padding: 2rem;
     flex-basis: 45%; /* Each block takes up 45% of the width */
@@ -2349,6 +2351,7 @@ main {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
