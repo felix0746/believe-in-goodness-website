@@ -1041,7 +1041,7 @@ main {
 }
 .contact-info-panel.visible {
   max-height: 1000px;
-  padding: 3rem 2rem;
+  padding: 1.5rem 2rem;
 }
 .contact-info-panel h3 {
   font-family: var(--font-serif);

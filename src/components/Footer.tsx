@@ -1,15 +1,22 @@
 'use client';
 
 import { useTranslation } from '@/hooks/useTranslation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 const Footer = () => {
   const { t } = useTranslation();
   const [isContactInfoVisible, setIsContactInfoVisible] = useState(false);
+  const pathname = usePathname();
 
   const toggleContactInfo = () => {
     setIsContactInfoVisible(!isContactInfoVisible);
   };
+
+  useEffect(() => {
+    // When the route changes, close the contact info panel
+    setIsContactInfoVisible(false);
+  }, [pathname]);
   
   return (
     <footer className="footer-container">
