@@ -26,7 +26,7 @@ main {
 
 /* Responsive adjustments for footer on mobile */
 @media (max-width: 768px) {
-  .contact-item span {
+  .contact-item p {
     font-size: 0.875rem; /* Adjust font size to prevent wrapping */
   }
 }
