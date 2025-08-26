@@ -962,6 +962,8 @@ main {
 /* === 頁尾區塊 === */
 .footer-container {
   background-color: #fff;
+  position: relative; /* 為了讓 z-index 生效 */
+  z-index: 1; /* 確保 footer 的堆疊層級低於 header */
 }
 .footer-banner {
   position: relative;
