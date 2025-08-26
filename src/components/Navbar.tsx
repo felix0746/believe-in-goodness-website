@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import OptimizedImage from './OptimizedImage';
 import { useTranslation } from '@/hooks/useTranslation';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -54,7 +54,7 @@ const Navbar = () => {
     <header className={`main-header ${isScrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-open' : ''}`} id="main-header">
       <div className="logo-container">
         <Link href="/" onClick={closeMobileMenu}>
-          <Image src="/images/logo-text.png" alt="相信善良 logo" width={150} height={50} priority style={{ height: '50px', width: 'auto' }}/>
+          <OptimizedImage src="/images/logo-text.png" alt="相信善良 logo" width={150} height={50} priority style={{ height: '50px', width: 'auto' }}/>
         </Link>
       </div>
 

@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import OptimizedImage from '@/components/OptimizedImage';
 import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
       {/* 🌿 區塊 1：背景緣由 */}
       <section className="section">
         <div className="section-image">
-          <Image src="/images/lll-1.png" alt="一張寫著相信善良的卡片放在植物中" width={500} height={500} style={{ width: '100%', height: 'auto' }} />
+          <OptimizedImage src="/images/lll-1.png" alt="一張寫著相信善良的卡片放在植物中" width={500} height={500} style={{ width: '100%', height: 'auto' }} />
         </div>
         <div className="section-text">
           <h2>{t('homeReasonTitle')}</h2>
@@ -22,7 +22,7 @@ export default function Home() {
       {/* 🌟 區塊 2：我們的承諾 */}
       <section className="section section-reversed">
         <div className="section-image">
-          <Image src="/images/Black-1.png" alt="孩子們伸出手，眼神充滿希望" width={500} height={500} style={{ width: '100%', height: 'auto' }} />
+          <OptimizedImage src="/images/Black-1.png" alt="孩子們伸出手，眼神充滿希望" width={500} height={500} style={{ width: '100%', height: 'auto' }} />
         </div>
         <div className="section-text">
           <h2>{t('homeCommitmentTitle')}</h2>
@@ -33,7 +33,7 @@ export default function Home() {
       {/* 💡 區塊 3：信念與期望 */}
       <section className="belief-section">
         <div className="belief-banner">
-          <Image src="/images/logo-1.png" alt="相信善良 Banner Logo" width={450} height={150} style={{ width: '90%', maxWidth: '450px', height: 'auto' }} />
+          <OptimizedImage src="/images/logo-1.png" alt="相信善良 Banner Logo" width={450} height={150} style={{ width: '90%', maxWidth: '450px', height: 'auto' }} />
         </div>
         <div className="belief-description">
           <p dangerouslySetInnerHTML={{ __html: t('homeBeliefText') }} />
