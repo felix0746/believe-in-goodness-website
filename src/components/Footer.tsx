@@ -46,7 +46,7 @@ const Footer = () => {
         <h3>{t('footerContactTitle')}</h3>
         <p>✉️ service@wowmiss.com</p>
         <p>📞 02 2559 0960</p>
-        <p>📍 台北市中正區羅斯福路二段168號6號樓之1</p>
+        <p>📍 台北市中正區羅斯福路二段168號6樓之1</p>
       </div>
     </footer>
   );
