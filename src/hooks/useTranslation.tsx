@@ -28,6 +28,10 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage && translations[savedLanguage as keyof TranslationsType]) {
       setLanguageState(savedLanguage);
+      // 初始載入時設定 HTML 的 lang 屬性
+      if (typeof document !== 'undefined') {
+        document.documentElement.lang = savedLanguage;
+      }
     }
   }, []);
 
@@ -35,10 +39,18 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     if (translations[lang as keyof TranslationsType]) {
       localStorage.setItem('language', lang);
       setLanguageState(lang);
+      // 動態更新 HTML 的 lang 屬性
+      if (typeof document !== 'undefined') {
+        document.documentElement.lang = lang;
+      }
     } else {
       console.warn(`Language '${lang}' not found. Defaulting to 'zh-Hant'.`);
       localStorage.setItem('language', 'zh-Hant');
       setLanguageState('zh-Hant');
+      // 動態更新 HTML 的 lang 屬性
+      if (typeof document !== 'undefined') {
+        document.documentElement.lang = 'zh-Hant';
+      }
     }
   };
 

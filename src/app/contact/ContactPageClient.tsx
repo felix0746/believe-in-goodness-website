@@ -32,10 +32,43 @@ export default function ContactPageClient() {
   }, []);
 
   const address = t('address');
-  // 改用 'search' API，這對於格式複雜的地址更為可靠
-  const googleMapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-  // 為嵌入式地圖也建立一個動態 URL
-  const googleMapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+  
+  // 為不同語言版本提供更精確的地址格式
+  const getPreciseAddress = () => {
+    const currentLang = document.documentElement.lang || 'zh-Hant';
+    
+    // 根據語言提供更精確的地址格式
+    switch (currentLang) {
+      case 'en':
+        return '168 Roosevelt Road Section 2, Zhongzheng District, Taipei City, Taiwan';
+      case 'vi':
+        return '168 Roosevelt Road Section 2, Zhongzheng District, Taipei City, Taiwan';
+      case 'zh-Hant':
+      default:
+        return '台北市中正區羅斯福路二段168號6樓之1';
+    }
+  };
+  
+  const preciseAddress = getPreciseAddress();
+  
+  // 使用精確地址生成 Google Maps URL
+  const googleMapsSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(preciseAddress)}`;
+  
+  // 為嵌入式地圖也建立一個動態 URL，使用精確地址
+  // 使用標準的 Google Maps 嵌入格式
+  // 羅斯福路二段168號的大概座標：25.0330, 121.5654
+  const googleMapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(preciseAddress)}&t=&z=18&ie=UTF8&iwloc=&output=embed`;
+  
+  // 添加調試信息（開發時使用）
+  console.log('Current Language:', document.documentElement.lang);
+  console.log('Precise Address:', preciseAddress);
+  console.log('Google Maps Embed URL:', googleMapsEmbedUrl);
+  
+  // 嘗試使用更精確的地址格式
+  const alternativeAddress = '台北市中正區羅斯福路二段168號';
+  const alternativeEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(alternativeAddress)}&t=&z=18&ie=UTF8&iwloc=&output=embed`;
+  console.log('Alternative Address:', alternativeAddress);
+  console.log('Alternative Embed URL:', alternativeEmbedUrl);
 
   return (
     <main className="contact-page-main">
@@ -223,30 +256,31 @@ export default function ContactPageClient() {
               <h2>{t('locationTitle')}</h2>
               <p>{t('locationDesc')}</p>
           </div>
-          <div className="map-card-container">
-              <div className="map-container">
-                  <iframe
-                      src={googleMapsEmbedUrl}
-                      width="100%"
-                      height="450"
-                      style={{ border:0 }}
-                      allowFullScreen={true}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade">
-                  </iframe>
-              </div>
-          </div>
+                     <div className="map-card-container">
+               <div className="map-container">
+                   <iframe
+                       src={googleMapsEmbedUrl}
+                       width="100%"
+                       height="450"
+                       style={{ border:0 }}
+                       allowFullScreen={true}
+                       loading="lazy"
+                       referrerPolicy="no-referrer-when-downgrade"
+                       title="Our Location">
+                   </iframe>
+               </div>
+           </div>
           
           {/* 手機版整合聯絡資訊 */}
           <div className="mobile-contact-info">
-              <h3>聯絡資訊</h3>
+              <h3>{t('contactDetailsTitle')}</h3>
               <div className="mobile-contact-grid">
                   <div className="mobile-contact-item">
                       <div className="mobile-contact-icon">
                           <i className="fas fa-map-marker-alt"></i>
                       </div>
                       <div className="mobile-contact-text">
-                          <h4>地址</h4>
+                          <h4>{t('addressTitle')}</h4>
                           <p>{t('address')}</p>
                       </div>
                   </div>
@@ -255,7 +289,7 @@ export default function ContactPageClient() {
                           <i className="fas fa-phone-alt"></i>
                       </div>
                       <div className="mobile-contact-text">
-                          <h4>電話</h4>
+                          <h4>{t('phoneTitle')}</h4>
                           <a href={`tel:${t('phone')}`}>{t('phone')}</a>
                       </div>
                   </div>
@@ -264,7 +298,7 @@ export default function ContactPageClient() {
                           <i className="fas fa-envelope"></i>
                       </div>
                       <div className="mobile-contact-text">
-                          <h4>電子郵件</h4>
+                          <h4>{t('emailTitle')}</h4>
                           <a href={`mailto:${t('email')}`}>{t('email')}</a>
                       </div>
                   </div>
@@ -273,7 +307,7 @@ export default function ContactPageClient() {
                           <i className="fas fa-clock"></i>
                       </div>
                       <div className="mobile-contact-text">
-                          <h4>營業時間</h4>
+                          <h4>{t('hoursTitle')}</h4>
                           <p>{t('hours')}</p>
                       </div>
                   </div>

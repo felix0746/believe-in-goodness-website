@@ -522,10 +522,17 @@ main {
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 強制三欄佈局 */
-  gap: 2.5rem;
-  max-width: 1100px;
+  gap: 3rem; /* 增加卡片間距 */
+  max-width: 1200px; /* 增加最大寬度，為英文版本提供更多空間 */
   margin: 0 auto 3rem;
   /* 讓網格自然分佈，不強制居中 */
+}
+
+/* 英文版本的網格優化 */
+html[lang="en"] .services-grid {
+  max-width: 1200px !important; /* 減少英文版本寬度，適應更小的卡片 */
+  gap: 3rem !important; /* 減少英文版本卡片間距 */
+  padding: 0 1.5rem !important; /* 減少左右內邊距 */
 }
 
 .service-card {
@@ -536,8 +543,9 @@ main {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   border: 1px solid #e9ecef;
   transition: transform 0.3s, box-shadow 0.3s;
-  min-width: 300px; /* 確保卡片有足夠寬度 */
-  max-width: 400px; /* 限制最大寬度，避免過寬 */
+  min-width: 320px; /* 增加最小寬度，為英文版本提供更多空間 */
+  max-width: 420px; /* 增加最大寬度 */
+  min-height: 320px; /* 增加卡片高度，為英文版本提供更多空間 */
 }
 
 .service-card:hover {
@@ -546,7 +554,7 @@ main {
 }
 
 .service-icon {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* 減少圖示和標題之間的間距 */
   color: var(--accent-color);
   font-size: 2.5rem; /* 加大圖示 */
   display: flex;
@@ -564,6 +572,13 @@ main {
   hyphens: auto;
   word-break: keep-all; /* 防止單詞被強制分割 */
   white-space: normal; /* 允許自然換行 */
+  line-height: 1.4; /* 進一步優化行高 */
+  min-height: 4.5rem; /* 增加標題高度，確保英文版本有足夠空間 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* 確保文字居中 */
+  padding: 0 0.5rem; /* 添加左右內邊距 */
 }
 
 .service-card p {
@@ -576,6 +591,374 @@ main {
   text-align: left; /* 桌面版左對齊，更易讀 */
   word-break: keep-all; /* 防止單詞被強制分割 */
   white-space: normal; /* 允許自然換行 */
+}
+
+/* 英文版本的特別優化 */
+html[lang="en"] .service-card h3 {
+  min-height: 7rem !important; /* 進一步增加英文版本標題高度 */
+  line-height: 1.6 !important; /* 優化英文版本的行高 */
+  font-size: 1.3rem !important; /* 稍微縮小字體，減少換行 */
+  padding: 0 1rem !important; /* 增加左右內邊距 */
+  word-break: normal !important; /* 允許正常的單詞分割 */
+  white-space: normal !important; /* 允許自然換行 */
+  margin-bottom: 1.5rem !important; /* 增加標題和描述之間的間距 */
+}
+
+html[lang="en"] .service-icon {
+  margin-bottom: 0.75rem !important; /* 英文版本圖示間距優化 */
+}
+
+html[lang="en"] .service-card {
+  min-height: 380px !important; /* 減少英文版本卡片高度，讓卡片更緊湊 */
+  padding: 2.5rem 1.5rem !important; /* 減少卡片內邊距 */
+}
+
+html[lang="en"] .service-card p {
+  min-height: 7rem !important; /* 減少描述文字高度，適應更小的卡片 */
+  line-height: 1.6 !important; /* 優化英文描述文字的行高 */
+  padding: 0 0.5rem !important; /* 保持左右內邊距 */
+  margin-bottom: 0.5rem !important; /* 減少底部邊距 */
+}
+
+/* 英文版本聯絡詳情區塊優化 */
+html[lang="en"] .contact-details-section {
+  padding: 4rem 2rem !important; /* 調整英文版本內邊距 */
+}
+
+html[lang="en"] .contact-details-section h2 {
+  font-size: 2.2rem !important; /* 調整英文版本標題大小 */
+  margin-bottom: 3rem !important; /* 調整英文版本標題下邊距 */
+}
+
+html[lang="en"] .contact-grid {
+  max-width: 1100px !important; /* 調整英文版本網格最大寬度 */
+  gap: 2.5rem !important; /* 調整英文版本卡片間距 */
+}
+
+html[lang="en"] .contact-card {
+  padding: 2rem !important; /* 調整英文版本卡片內邊距 */
+  min-height: 120px !important; /* 確保英文版本卡片有足夠高度 */
+}
+
+html[lang="en"] .contact-card h3 {
+  font-size: 1.1rem !important; /* 調整英文版本卡片標題大小 */
+  margin-bottom: 0.75rem !important; /* 調整英文版本卡片標題下邊距 */
+}
+
+html[lang="en"] .contact-card p {
+  font-size: 0.95rem !important; /* 調整英文版本卡片描述文字大小 */
+  line-height: 1.5 !important; /* 調整英文版本卡片描述文字行高 */
+}
+
+/* 英文版本聯絡詳情區塊完整樣式優化 */
+html[lang="en"] .contact-details-section {
+  background-color: #f8f9fa !important; /* 與中文版本相同的淺灰色背景 */
+  padding-top: 4rem !important; /* 與中文版本相同的上方 padding */
+  padding-bottom: 3rem !important;
+}
+
+html[lang="en"] .contact-details-section .container {
+  background-color: white !important; /* 與中文版本相同的白色容器 */
+  padding: 3rem 2rem !important; /* 與中文版本相同的容器內邊距 */
+  border-radius: var(--border-radius) !important; /* 與中文版本相同的圓角 */
+  box-shadow: var(--shadow) !important; /* 與中文版本相同的陰影 */
+  transform: translateY(0) !important; /* 與中文版本相同的變形 */
+  max-width: none !important; /* 移除 max-width 限制，與中文版本使用相同的容器寬度 */
+  margin: 0 auto !important; /* 保持居中對齊 */
+}
+
+html[lang="en"] .contact-details-section h2 {
+  margin-top: 0 !important;
+  margin-bottom: 3rem !important; /* 與中文版本相同的標題下邊距 */
+  font-size: 2.2rem !important;
+}
+
+html[lang="en"] .contact-details-section .contact-grid {
+  gap: 1.2rem !important; /* 與中文版本相同的卡片間距 */
+}
+
+html[lang="en"] .contact-details-section .contact-card {
+  background-color: #fff !important; /* 與中文版本相同的白色背景 */
+  border: 1px solid #e9ecef !important; /* 與中文版本相同的邊框 */
+  box-shadow: none !important; /* 與中文版本相同的無陰影 */
+  padding: 1.5rem !important; /* 與中文版本相同的內邊距 */
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  min-height: 120px !important;
+}
+
+html[lang="en"] .contact-details-section .contact-icon {
+  font-size: 1.5rem !important; /* 與中文版本相同的圖示大小 */
+  color: var(--accent-color) !important;
+  flex-shrink: 0 !important;
+}
+
+html[lang="en"] .contact-details-section .contact-text {
+  text-align: left !important;
+}
+
+html[lang="en"] .contact-details-section .contact-text h3 {
+  font-size: 1rem !important; /* 與中文版本相同的標題大小 */
+  margin-bottom: 0.2rem !important; /* 與中文版本相同的標題下邊距 */
+  color: var(--text-color) !important;
+}
+
+html[lang="en"] .contact-details-section .contact-text p,
+html[lang="en"] .contact-details-section .contact-text p a {
+  margin: 0 !important;
+  font-size: 0.9rem !important; /* 與中文版本相同的描述文字大小 */
+  color: #6c757d !important;
+  text-decoration: none !important;
+  line-height: 1.6 !important;
+}
+
+html[lang="en"] .contact-details-section .contact-text p a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* 英文版本桌面版響應式樣式 */
+@media (min-width: 1025px) {
+  html[lang="en"] .contact-details-section .contact-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.2rem !important; /* 與中文版本保持一致的卡片間距 */
+  }
+  
+  html[lang="en"] .contact-details-section .contact-card {
+    padding: 1.5rem !important; /* 與中文版本保持一致的內邊距 */
+    min-height: 120px !important; /* 與中文版本保持一致的高度 */
+  }
+  
+  html[lang="en"] .contact-details-section .contact-icon {
+    font-size: 1.5rem !important; /* 與中文版本保持一致的圖示大小 */
+  }
+  
+  html[lang="en"] .contact-details-section .contact-text h3 {
+    font-size: 1rem !important; /* 與中文版本保持一致的標題大小 */
+  }
+  
+  html[lang="en"] .contact-details-section .contact-text p {
+    font-size: 0.9rem !important; /* 與中文版本保持一致的描述文字大小 */
+  }
+}
+
+/* 英文版本平板版響應式樣式 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html[lang="en"] .contact-details-section .contact-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.2rem !important; /* 與中文版本保持一致的卡片間距 */
+  }
+  
+  html[lang="en"] .contact-details-section .contact-card {
+    padding: 1.5rem !important; /* 與中文版本保持一致的內邊距 */
+    min-height: 120px !important; /* 與中文版本保持一致的高度 */
+  }
+}
+
+/* 越南文版本的特別優化 */
+html[lang="vi"] .service-card h3 {
+  min-height: 4.5rem !important;
+  line-height: 1.4 !important;
+}
+
+/* 英文版本地圖區塊樣式優化 */
+html[lang="en"] .location-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+  padding: 4rem 2rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+html[lang="en"] .location-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, var(--accent-color), var(--primary-color), var(--accent-color)) !important;
+}
+
+html[lang="en"] .location-header {
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+html[lang="en"] .location-header h2 {
+  font-size: 2.5rem !important;
+  color: var(--primary-color) !important;
+  margin-bottom: 1rem !important;
+  font-weight: 700 !important;
+  position: relative !important;
+}
+
+html[lang="en"] .location-header h2::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 80px !important;
+  height: 3px !important;
+  background: var(--accent-color) !important;
+  border-radius: 2px !important;
+}
+
+html[lang="en"] .location-header p {
+  font-size: 1.1rem !important;
+  color: var(--text-color) !important;
+  line-height: 1.6 !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+  opacity: 0.8 !important;
+}
+
+html[lang="en"] .map-card-container {
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+html[lang="en"] .map-container {
+  background: white !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+html[lang="en"] .map-container::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 6px !important;
+  background: linear-gradient(90deg, var(--accent-color), var(--primary-color)) !important;
+  z-index: 3 !important;
+}
+
+html[lang="en"] .map-container iframe {
+  border-radius: 16px !important;
+  transition: transform 0.3s ease !important;
+}
+
+html[lang="en"] .map-container:hover iframe {
+  transform: scale(1.02) !important;
+}
+
+html[lang="en"] .location-section::after {
+  content: '📍' !important;
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  font-size: 3rem !important;
+  opacity: 0.1 !important;
+  z-index: 1 !important;
+}
+
+/* 越南文版本地圖區塊樣式優化 */
+html[lang="vi"] .location-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+  padding: 4rem 2rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+html[lang="vi"] .location-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, var(--accent-color), var(--primary-color), var(--accent-color)) !important;
+}
+
+html[lang="vi"] .location-header {
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+html[lang="vi"] .location-header h2 {
+  font-size: 2.5rem !important;
+  color: var(--primary-color) !important;
+  margin-bottom: 1rem !important;
+  font-weight: 700 !important;
+  position: relative !important;
+}
+
+html[lang="vi"] .location-header h2::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 80px !important;
+  height: 3px !important;
+  background: var(--accent-color) !important;
+  border-radius: 2px !important;
+}
+
+html[lang="vi"] .location-header p {
+  font-size: 1.1rem !important;
+  color: var(--text-color) !important;
+  line-height: 1.6 !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+  opacity: 0.8 !important;
+}
+
+html[lang="vi"] .map-card-container {
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+html[lang="vi"] .map-container {
+  background: white !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+html[lang="vi"] .map-container::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 6px !important;
+  background: linear-gradient(90deg, var(--accent-color), var(--primary-color)) !important;
+  z-index: 3 !important;
+}
+
+html[lang="vi"] .map-container iframe {
+  border-radius: 16px !important;
+  transition: transform 0.3s ease !important;
+}
+
+html[lang="vi"] .map-container:hover iframe {
+  transform: scale(1.02) !important;
+}
+
+html[lang="vi"] .location-section::after {
+  content: '📍' !important;
+  position: absolute !important;
+  top: 20px !important;
+  right: 20px !important;
+  font-size: 3rem !important;
+  opacity: 0.1 !important;
+  z-index: 1 !important;
 }
 
 .contact-welcome {
@@ -785,6 +1168,50 @@ main {
   
   .map-container::before {
     height: 4px;
+  }
+  
+  /* 英文版本手機版地圖樣式 */
+  html[lang="en"] .location-section {
+    padding: 3rem 1rem !important;
+  }
+  
+  html[lang="en"] .location-header h2 {
+    font-size: 2rem !important;
+  }
+  
+  html[lang="en"] .location-header p {
+    font-size: 1rem !important;
+  }
+  
+  html[lang="en"] .map-container {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  html[lang="en"] .map-container::before {
+    height: 4px !important;
+  }
+  
+  /* 越南文版本手機版地圖樣式 */
+  html[lang="vi"] .location-section {
+    padding: 3rem 1rem !important;
+  }
+  
+  html[lang="vi"] .location-header h2 {
+    font-size: 2rem !important;
+  }
+  
+  html[lang="vi"] .location-header p {
+    font-size: 1rem !important;
+  }
+  
+  html[lang="vi"] .map-container {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  html[lang="vi"] .map-container::before {
+    height: 4px !important;
   }
 }
 
@@ -4326,6 +4753,24 @@ main {
     line-height: 1.3 !important;
   }
   
+  /* 英文版本的特別優化 - 使用更高優先級 */
+  html[lang="en"] .contact-cards-section .service-card h3 {
+    font-size: 1.3rem !important;
+    min-height: 6rem !important;
+    line-height: 1.6 !important;
+    padding: 0 1rem !important;
+  }
+  
+  html[lang="en"] .contact-cards-section .service-card {
+    min-height: 380px !important;
+    padding: 3rem 2rem !important;
+  }
+  
+  html[lang="en"] .contact-cards-section .service-card p {
+    min-height: 8rem !important;
+    line-height: 1.7 !important;
+  }
+  
   .contact-cards-section .service-card p {
     font-size: 0.95rem !important;
     line-height: 1.6 !important;
@@ -4621,6 +5066,11 @@ main {
   /* 手機版隱藏詳細聯絡資訊區塊 */
   .contact-details-section {
     display: none !important;
+  }
+  
+  /* 英文版本在手機版也顯示聯絡詳情區塊 */
+  html[lang="en"] .contact-details-section {
+    display: block !important;
   }
 }
 
@@ -4926,7 +5376,7 @@ main {
   }
   
   .service-card .service-icon {
-    margin-bottom: 1.25rem !important; /* 減少圖標下邊距 */
+    margin-bottom: 0.75rem !important; /* 進一步減少圖標下邊距 */
     flex-shrink: 0 !important;
     font-size: 2.25rem !important; /* 調整圖標大小 */
   }
@@ -4946,6 +5396,37 @@ main {
     text-align: center !important;
     font-size: 0.9rem !important; /* 調整描述文字大小 */
     line-height: 1.6 !important; /* 調整描述文字行高 */
+  }
+  
+  /* 英文版本的桌面版特別優化 - 使用最高優先級 */
+  html[lang="en"] .service-card {
+    height: 380px !important; /* 減少英文版本高度，讓卡片更緊湊 */
+    min-height: 380px !important;
+    max-height: 380px !important;
+    width: 300px !important; /* 減少英文版本寬度，讓卡片更緊湊 */
+    max-width: 300px !important;
+    min-width: 300px !important;
+    padding: 2.5rem 1.5rem !important; /* 減少內邊距 */
+  }
+  
+  html[lang="en"] .service-card h3 {
+    min-height: 5rem !important; /* 減少標題高度，適應更小的卡片 */
+    line-height: 1.5 !important; /* 優化行高 */
+    font-size: 1.2rem !important; /* 稍微縮小字體 */
+    padding: 0 0.75rem !important; /* 減少左右內邊距 */
+    margin-bottom: 1rem !important; /* 減少標題和描述之間的間距 */
+  }
+  
+  html[lang="en"] .service-card p {
+    min-height: 7rem !important; /* 減少描述文字高度，適應更小的卡片 */
+    line-height: 1.6 !important; /* 優化行高 */
+    font-size: 0.9rem !important; /* 稍微縮小字體 */
+    padding: 0 0.5rem !important; /* 保持左右內邊距 */
+    margin-bottom: 0.5rem !important; /* 減少底部邊距 */
+  }
+  
+  html[lang="en"] .service-card .service-icon {
+    margin-bottom: 0.5rem !important; /* 桌面版英文版本圖示間距優化 */
   }
 }
 
