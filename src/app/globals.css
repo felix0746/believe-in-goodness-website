@@ -4356,20 +4356,67 @@ main {
     margin-bottom: 2rem !important;
   }
   
+  /* 手機版頁籤容器美化 */
+  .app-tabs-container {
+    background: white !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  /* 手機版頁籤導航美化 */
+  .app-tabs-nav-mobile {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .app-tabs-nav-mobile .app-tab-btn {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 1rem 0.75rem !important;
+    margin: 0 !important;
+    flex: 1 !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+  }
+  
+  .app-tabs-nav-mobile .app-tab-btn:not(.active) {
+    color: #6c757d !important;
+    background: transparent !important;
+  }
+  
+  .app-tabs-nav-mobile .app-tab-btn.active {
+    background: white !important;
+    color: var(--primary-color) !important;
+    font-weight: 600 !important;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* 手機版頁籤內容美化 */
   .app-tabs-content {
     padding: 1.5rem !important;
+    background: white !important;
+    border-radius: 0 0 16px 16px !important;
   }
   
   .tab-panel-header h3 {
     font-size: 1.5rem !important;
     line-height: 1.3 !important;
     margin-bottom: 0.5rem !important;
+    color: var(--primary-color) !important;
   }
   
   .tab-panel-subtitle {
     font-size: 0.95rem !important;
     line-height: 1.4 !important;
     margin-bottom: 1.5rem !important;
+    color: #6c757d !important;
+    padding-bottom: 1rem !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
   }
   
   .feature-list li {
@@ -4377,6 +4424,17 @@ main {
     line-height: 1.5 !important;
     margin-bottom: 0.75rem !important;
     padding-left: 1.5rem !important;
+    position: relative !important;
+  }
+  
+  .feature-list li::before {
+    content: '✓' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: var(--accent-color) !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
   }
   
   .app-buttons {
@@ -4387,8 +4445,38 @@ main {
   
   .app-buttons button {
     width: 100% !important;
-    padding: 0.875rem 1rem !important;
-    font-size: 0.95rem !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1rem !important;
+    border-radius: 12px !important;
+    border: none !important;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(20, 59, 98, 0.25) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  .app-buttons button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+    transition: left 0.5s ease !important;
+  }
+  
+  .app-buttons button:hover {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(20, 59, 98, 0.35) !important;
+  }
+  
+  .app-buttons button:hover::before {
+    left: 100% !important;
   }
 }
 
@@ -4711,39 +4799,62 @@ main {
 
 .location-section .mobile-contact-form-btn {
   width: 100% !important;
-  background: var(--accent-color) !important;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
   color: white !important;
   border: none !important;
-  border-radius: 6px !important;
-  padding: 0.875rem 1rem !important;
-  font-size: 0.9rem !important;
+  border-radius: 12px !important;
+  padding: 1rem 1.5rem !important;
+  font-size: 1rem !important;
   font-weight: 600 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 0.5rem !important;
+  gap: 0.75rem !important;
   cursor: pointer !important;
-  transition: all 0.2s ease !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(20, 59, 98, 0.25) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.location-section .mobile-contact-form-btn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+  transition: left 0.5s ease !important;
 }
 
 .location-section .mobile-contact-form-btn:hover {
-  background: var(--primary-color) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(20, 59, 98, 0.35) !important;
+}
+
+.location-section .mobile-contact-form-btn:hover::before {
+  left: 100% !important;
 }
 
 .location-section .mobile-contact-form-btn:active {
   transform: translateY(0) !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 15px rgba(20, 59, 98, 0.25) !important;
 }
 
 .location-section .mobile-contact-form-btn i {
-  font-size: 1rem !important;
+  font-size: 1.1rem !important;
+  transition: transform 0.3s ease !important;
+}
+
+.location-section .mobile-contact-form-btn:hover i {
+  transform: scale(1.1) !important;
 }
 
 .location-section .mobile-contact-form-btn span {
-  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
 }
 
 /* 響應式佈局調整 */
@@ -4884,4 +4995,1128 @@ main {
 /* 地址連結特殊樣式 */
 .footer-address .footer-contact-link:hover {
   color: #3498db;
+}
+
+/* 電腦版表單按鈕樣式 */
+.desktop-form-action {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.desktop-contact-form-btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 15px rgba(232, 168, 124, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.desktop-contact-form-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.desktop-contact-form-btn:hover {
+  background: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 168, 124, 0.4);
+}
+
+.desktop-contact-form-btn:hover::before {
+  left: 100%;
+}
+
+.desktop-contact-form-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(232, 168, 124, 0.3);
+}
+
+.desktop-contact-form-btn i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.desktop-contact-form-btn:hover i {
+  transform: scale(1.1);
+}
+
+.desktop-contact-form-btn span {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 手機版隱藏電腦版表單按鈕 */
+@media (max-width: 768px) {
+  .desktop-form-action {
+    display: none !important;
+  }
+}
+
+/* 桌面版頁籤區域左右平衡優化 */
+@media (min-width: 1025px) {
+  .app-tabs-container {
+    display: grid !important;
+    grid-template-columns: 280px 1fr !important; /* 左側固定寬度，右側自適應 */
+    gap: 2rem !important;
+    align-items: start !important;
+    background: white !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    padding: 2rem !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  /* 左側導航美化 */
+  .app-tabs-nav {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn {
+    width: 100% !important;
+    background: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 1rem 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+    text-align: left !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:not(.active) {
+    background: white !important;
+    color: var(--text-color) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:not(.active):hover {
+    background: #f8f9fa !important;
+    border-color: var(--accent-color) !important;
+    transform: translateX(5px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn.active {
+    background: var(--accent-color) !important;
+    color: white !important;
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 4px 16px rgba(232, 168, 124, 0.3) !important;
+    transform: translateX(5px) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn.active::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 4px !important;
+    background: var(--primary-color) !important;
+    border-radius: 0 2px 2px 0 !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn .tab-icon {
+    font-size: 1.5rem !important;
+    margin-right: 0.75rem !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn .tab-text {
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* 右側內容區域調整 */
+  .app-tabs-content {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    min-height: 400px !important;
+  }
+  
+  .tab-panel-header h3 {
+    font-size: 2rem !important;
+    color: var(--primary-color) !important;
+    margin-bottom: 0.75rem !important;
+    font-weight: 700 !important;
+    position: relative !important;
+  }
+  
+  .tab-panel-header h3::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -8px !important;
+    left: 0 !important;
+    width: 60px !important;
+    height: 3px !important;
+    background: var(--accent-color) !important;
+    border-radius: 2px !important;
+  }
+  
+  .tab-panel-subtitle {
+    font-size: 1.1rem !important;
+    color: #6c757d !important;
+    margin-bottom: 2rem !important;
+    line-height: 1.6 !important;
+    padding-bottom: 1rem !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .feature-list li {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1rem !important;
+    padding-left: 2rem !important;
+    position: relative !important;
+    color: var(--text-color) !important;
+  }
+  
+  .feature-list li::before {
+    content: '✓' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    color: var(--accent-color) !important;
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+    background: rgba(232, 168, 124, 0.1) !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .app-buttons {
+    display: flex !important;
+    gap: 1rem !important;
+    margin-top: 2rem !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .app-buttons button {
+    padding: 0.875rem 1.5rem !important;
+    font-size: 1rem !important;
+    border-radius: 8px !important;
+    border: none !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  
+  .app-buttons button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+/* 桌面版頁籤區域動態平衡設計 */
+
+
+@media (min-width: 1025px) {
+  .app-tabs-container {
+    display: grid !important;
+    grid-template-columns: 38.2% 61.8% !important;
+    gap: 2.5rem !important;
+    align-items: start !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    position: relative !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* 動態背景光效 */
+  .app-tabs-container::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: radial-gradient(circle at 30% 50%, rgba(232, 168, 124, 0.03) 0%, transparent 50%) !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+    animation: backgroundFloat 8s ease-in-out infinite !important;
+  }
+  
+  @keyframes backgroundFloat {
+    0%, 100% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(10px) translateY(-5px); }
+    50% { transform: translateX(-5px) translateY(10px); }
+    75% { transform: translateX(15px) translateY(5px); }
+  }
+  
+  .app-tabs-nav {
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    position: relative !important;
+    overflow: visible !important;
+  }
+  
+  /* 左側導航動態指示器 */
+  .app-tabs-nav::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: -1.25rem !important;
+    width: 2px !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, transparent, var(--accent-color), transparent) !important;
+    opacity: 0.3 !important;
+    animation: navPulse 3s ease-in-out infinite !important;
+  }
+  
+  @keyframes navPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 0.6; transform: scaleY(1.1); }
+  }
+  
+  .app-tabs-nav .app-tab-btn {
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 1.75rem 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    text-align: left !important;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    position: relative !important;
+    overflow: visible !important;
+    cursor: pointer !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:not(.active) {
+    background: transparent !important;
+    color: #94a3b8 !important;
+    border: none !important;
+    transform: translateX(0) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:not(.active):hover {
+    background: rgba(232, 168, 124, 0.05) !important;
+    color: var(--text-color) !important;
+    transform: translateX(12px) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn.active {
+    background: rgba(232, 168, 124, 0.08) !important;
+    color: var(--primary-color) !important;
+    border: none !important;
+    transform: translateX(12px) !important;
+    animation: activeTabGlow 2s ease-in-out infinite alternate !important;
+  }
+  
+  @keyframes activeTabGlow {
+    0% { background: rgba(232, 168, 124, 0.08); }
+    100% { background: rgba(232, 168, 124, 0.12); }
+  }
+  
+  /* 動態活動指示器 */
+  .app-tabs-nav .app-tab-btn.active::before {
+    content: '' !important;
+    position: absolute !important;
+    left: -1.5rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 8px !important;
+    height: 8px !important;
+    background: var(--accent-color) !important;
+    border-radius: 50% !important;
+    animation: activeDotPulse 2s ease-in-out infinite !important;
+    box-shadow: 0 0 20px rgba(232, 168, 124, 0.4) !important;
+  }
+  
+  @keyframes activeDotPulse {
+    0%, 100% { transform: translateY(-50%) scale(1); opacity: 1; }
+    50% { transform: translateY(-50%) scale(1.2); opacity: 0.8; }
+  }
+  
+  .app-tabs-nav .app-tab-btn .tab-icon {
+    font-size: 1.75rem !important;
+    margin-right: 1rem !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    opacity: 0.7 !important;
+    transform: rotate(0deg) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:hover .tab-icon {
+    opacity: 1 !important;
+    transform: rotate(5deg) scale(1.1) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn.active .tab-icon {
+    opacity: 1 !important;
+    transform: rotate(0deg) scale(1.15) !important;
+    animation: iconFloat 3s ease-in-out infinite !important;
+  }
+  
+  @keyframes iconFloat {
+    0%, 100% { transform: rotate(0deg) scale(1.15) translateY(0); }
+    50% { transform: rotate(0deg) scale(1.15) translateY(-3px); }
+  }
+  
+  .app-tabs-nav .app-tab-btn .tab-text {
+    font-weight: 400 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.025em !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:hover .tab-text {
+    transform: translateX(4px) !important;
+  }
+  
+  .app-tabs-content {
+    background: transparent !important;
+    padding: 0 0 0 1rem !important;
+    min-height: 500px !important;
+    position: relative !important;
+    overflow: visible !important;
+    animation: contentFadeIn 0.6s ease-out !important;
+  }
+  
+  @keyframes contentFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* 動態內容標題 */
+  .tab-panel-header h3 {
+    font-size: 2.25rem !important;
+    color: var(--primary-color) !important;
+    margin-bottom: 1.5rem !important;
+    font-weight: 300 !important;
+    position: relative !important;
+    letter-spacing: -0.02em !important;
+    animation: titleSlideIn 0.8s ease-out 0.2s both !important;
+  }
+  
+  @keyframes titleSlideIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  .tab-panel-header h3::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -12px !important;
+    left: 0 !important;
+    width: 80px !important;
+    height: 2px !important;
+    background: var(--accent-color) !important;
+    border-radius: 1px !important;
+    opacity: 0.6 !important;
+    animation: underlineExpand 0.8s ease-out 0.4s both !important;
+  }
+  
+  @keyframes underlineExpand {
+    from { width: 0; opacity: 0; }
+    to { width: 80px; opacity: 0.6; }
+  }
+  
+  .tab-panel-subtitle {
+    font-size: 1.2rem !important;
+    color: #64748b !important;
+    margin-bottom: 2.5rem !important;
+    line-height: 1.7 !important;
+    padding-bottom: 1.5rem !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+    font-weight: 300 !important;
+    animation: subtitleFadeIn 0.8s ease-out 0.6s both !important;
+  }
+  
+  @keyframes subtitleFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .feature-list li {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.25rem !important;
+    padding: 1.5rem 4rem 1.5rem 3rem !important;
+    position: relative !important;
+    color: var(--text-color) !important;
+    transition: all 0.3s ease !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+    animation: listItemSlideIn 0.6s ease-out forwards !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  }
+  
+  .feature-list li:nth-child(1) { animation-delay: 0.8s !important; }
+  .feature-list li:nth-child(2) { animation-delay: 1.0s !important; }
+  .feature-list li:nth-child(3) { animation-delay: 1.2s !important; }
+  
+  /* 功能列表編號已移除 */
+  /* .feature-list li::after {
+    content: counter(feature-counter) !important;
+    position: absolute !important;
+    right: 1rem !important;
+    top: 1.5rem !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    background: linear-gradient(135deg, #8b4513, #a0522d) !important;
+    color: white !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.875rem !important;
+    font-weight: bold !important;
+    box-shadow: 0 2px 6px rgba(139, 69, 19, 0.25) !important;
+  } */
+  
+  @keyframes listItemSlideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  .feature-list li:hover {
+    transform: translateX(12px) !important;
+    color: var(--primary-color) !important;
+  }
+  
+  .feature-list li::before {
+    content: '✓' !important;
+    position: absolute !important;
+    left: 1rem !important;
+    top: 1.5rem !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+    background: linear-gradient(135deg, #ff6b35, #f7931e) !important;
+    color: white !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.75rem !important;
+    font-weight: bold !important;
+    box-shadow: 0 2px 6px rgba(255, 107, 53, 0.25) !important;
+    animation: checkmarkBounce 0.6s ease-out 1.4s both !important;
+  }
+  
+  @keyframes checkmarkBounce {
+    0% { opacity: 0; transform: scale(0) rotate(-180deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(0deg); }
+    100% { opacity: 0.8; transform: scale(1) rotate(0deg); }
+  }
+  
+  .app-buttons {
+    display: flex !important;
+    gap: 1.5rem !important;
+    margin-top: 3rem !important;
+    flex-wrap: wrap !important;
+    opacity: 1 !important;
+    animation: buttonsFadeIn 0.8s ease-out 1.6s forwards !important;
+  }
+  
+  @keyframes buttonsFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .app-buttons button {
+    padding: 1.125rem 2rem !important;
+    font-size: 1.1rem !important;
+    border-radius: 0 !important;
+    border: 2px solid var(--accent-color) !important;
+    font-weight: 400 !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.875rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    color: var(--accent-color) !important;
+  }
+  
+  .app-buttons button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+    transition: left 0.6s ease !important;
+  }
+  
+  .app-buttons button:hover::before {
+    left: 100% !important;
+  }
+  
+  .app-buttons button:hover {
+    background: var(--accent-color) !important;
+    color: white !important;
+    transform: translateY(-6px) !important;
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 8px 25px rgba(232, 168, 124, 0.3) !important;
+  }
+  
+  .app-buttons button:active {
+    transform: translateY(-3px) !important;
+  }
+  
+  /* 動態平衡指示器 */
+  .app-tabs-container::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 60px !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent) !important;
+    opacity: 0.4 !important;
+    animation: balanceIndicator 4s ease-in-out infinite !important;
+  }
+  
+  @keyframes balanceIndicator {
+    0%, 100% { opacity: 0.4; transform: translateX(-50%) scaleX(1); }
+    50% { opacity: 0.8; transform: translateX(-50%) scaleX(1.5); }
+  }
+}
+
+/* 桌面版頁籤區域漸層融合設計 */
+@media (min-width: 1025px) {
+  .app-tabs-container {
+    display: grid !important;
+    grid-template-columns: 280px 1fr !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    overflow: visible !important;
+    position: relative !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* 整體容器的裝飾線條 */
+  .app-tabs-container::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color)) !important;
+  }
+  
+  /* 左側導航漸層融合 */
+  .app-tabs-nav {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
+    padding: 2rem 1.75rem !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.06) !important;
+    position: sticky !important;
+    top: 80px !important;
+    overflow: visible !important;
+    height: fit-content !important;
+    max-height: calc(100vh - 100px) !important;
+    z-index: 100 !important;
+    transition: all 0.3s ease !important;
+    will-change: transform !important;
+    align-self: flex-start !important;
+    margin-top: 0 !important;
+  }
+  
+  /* 左側導航的裝飾元素 */
+  .app-tabs-nav::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 1px !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.08), transparent) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn {
+    width: 100% !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 12px !important;
+    padding: 1.125rem 1.25rem !important;
+    margin-bottom: 1rem !important;
+    text-align: left !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:not(.active) {
+    background: rgba(255, 255, 255, 0.6) !important;
+    color: var(--text-color) !important;
+    border-color: rgba(0, 0, 0, 0.04) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:not(.active):hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    transform: translateX(6px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn.active {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #f8b195 100%) !important;
+    color: white !important;
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 6px 20px rgba(232, 168, 124, 0.25), 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    transform: translateX(6px) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn.active::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 4px !important;
+    background: var(--primary-color) !important;
+    border-radius: 0 3px 3px 0 !important;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  /* 導覽列滾動條樣式 */
+  .app-tabs-nav::-webkit-scrollbar {
+    width: 6px !important;
+  }
+  
+  .app-tabs-nav::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  
+  .app-tabs-nav::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-radius: 3px !important;
+  }
+  
+  .app-tabs-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  /* Sticky 狀態的視覺反饋 */
+  .app-tabs-nav.sticky-active {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+  }
+  
+  /* 導覽列邊界處理 */
+  .app-tabs-nav::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+  }
+  
+  .app-tabs-nav.sticky-active::before {
+    opacity: 1 !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn .tab-icon {
+    font-size: 1.5rem !important;
+    margin-right: 0.875rem !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    transition: transform 0.2s ease !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn:hover .tab-icon {
+    transform: scale(1.1) !important;
+  }
+  
+  .app-tabs-nav .app-tab-btn .tab-text {
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* 響應式導覽列調整 */
+  @media (min-height: 800px) {
+    .app-tabs-nav {
+      top: 100px !important;
+    }
+  }
+  
+  @media (min-height: 1000px) {
+    .app-tabs-nav {
+      top: 80px !important;
+    }
+  }
+  
+  /* 確保導覽列在小螢幕上不會超出視窗 */
+  @media (max-height: 600px) {
+    .app-tabs-nav {
+      max-height: calc(100vh - 100px) !important;
+      top: 80px !important;
+    }
+  }
+  
+  /* 強制啟用 sticky 定位 */
+  .app-tabs-nav {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 80px !important;
+  }
+  
+  /* 確保父容器不會阻止 sticky 定位 */
+  .app-tabs-container {
+    overflow: visible !important;
+    position: relative !important;
+  }
+  
+  /* 右側內容區域漸層融合 */
+  .app-tabs-content {
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfc 50%, #ffffff 100%) !important;
+    padding: 1.5rem !important;
+    min-height: 450px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  /* 右側內容的裝飾元素 */
+  .app-tabs-content::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 1px !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.06), transparent) !important;
+  }
+  
+  /* 右側內容的右邊裝飾 */
+  .app-tabs-content::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 1px !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.04), transparent) !important;
+  }
+  
+  /* 右側內容的底部裝飾 */
+  .app-tabs-content .tab-panel-header::before {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -2rem !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent) !important;
+  }
+  
+  /* 右側內容的右上角裝飾 */
+  .app-tabs-content .tab-panel-header::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 60px !important;
+    height: 60px !important;
+    background: radial-gradient(circle, rgba(232, 168, 124, 0.1) 0%, transparent 70%) !important;
+    border-radius: 50% !important;
+    z-index: -1 !important;
+  }
+  
+  .tab-panel-header h3 {
+    font-size: 2rem !important;
+    color: var(--primary-color) !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600 !important;
+    position: relative !important;
+  }
+  
+  .tab-panel-header h3::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -4px !important;
+    left: 0 !important;
+    width: 60px !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color)) !important;
+    border-radius: 2px !important;
+  }
+  
+  .tab-panel-subtitle {
+    font-size: 1.1rem !important;
+    color: #5a6c7d !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.6 !important;
+    padding-bottom: 0.75rem !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  }
+  
+  /* 功能列表容器美化 */
+  .feature-list {
+    background: rgba(248, 250, 252, 0.4) !important;
+    padding: 0.75rem !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+    margin-bottom: 1rem !important;
+    position: relative !important;
+  }
+  
+  /* 功能列表標題 - 已移除 */
+  /* .feature-list::before {
+    content: '✨ 核心功能' !important;
+    position: absolute !important;
+    top: -0.5rem !important;
+    left: 1rem !important;
+    background: white !important;
+    padding: 0.25rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    color: var(--primary-color) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  } */
+  
+  .feature-list li {
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 0.75rem !important;
+    padding: 1rem 2rem 1rem 3rem !important;
+    position: relative !important;
+    color: var(--text-color) !important;
+    transition: all 0.2s ease !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  
+  .feature-list li:hover {
+    transform: translateX(6px) !important;
+    color: var(--primary-color) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  }
+  
+  .feature-list li::before {
+    content: '✓' !important;
+    position: absolute !important;
+    left: 0.75rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 0.9rem !important;
+    background: linear-gradient(135deg, var(--accent-color), #f8b195) !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 3px 12px rgba(232, 168, 124, 0.25) !important;
+  }
+  
+  /* 功能列表項目的編號 */
+  /* 移除功能列表編號 */
+  /* .feature-list li::after {
+    content: counter(feature-counter) !important;
+    position: absolute !important;
+    right: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+    color: white !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.8rem !important;
+    font-weight: bold !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  } */
+  
+
+  
+  /* 功能列表計數器已移除 */
+  /* .feature-list {
+    counter-reset: feature-counter !important;
+  }
+  
+  .feature-list li {
+    counter-increment: feature-counter !important;
+  }
+  
+  .feature-list li {
+    counter-increment: feature-counter !important;
+  } */
+  
+  .app-buttons {
+    display: flex !important;
+    gap: 1.125rem !important;
+    margin-top: 1rem !important;
+    flex-wrap: wrap !important;
+    padding: 1.25rem !important;
+    background: rgba(248, 250, 252, 0.8) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    position: relative !important;
+  }
+  
+  /* 按鈕區域的裝飾 */
+  .app-buttons::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color)) !important;
+    border-radius: 12px 12px 0 0 !important;
+  }
+  
+  /* 按鈕區域標題 - 已移除 */
+  /* .app-buttons::after {
+    content: '🚀 立即行動' !important;
+    position: absolute !important;
+    top: -0.75rem !important;
+    left: 1.5rem !important;
+    background: white !important;
+    padding: 0.25rem 1rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: var(--accent-color) !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  } */
+  
+  .app-buttons button {
+    padding: 1rem 1.75rem !important;
+    font-size: 1.05rem !important;
+    border-radius: 10px !important;
+    border: none !important;
+    font-weight: 500 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(20, 59, 98, 0.25) !important;
+  }
+  
+  .app-buttons button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(20, 59, 98, 0.35) !important;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%) !important;
+  }
+  
+  /* 按鈕圖示樣式 */
+  .button-icon {
+    font-size: 1.2rem !important;
+    display: inline-block !important;
+    margin-right: 0.5rem !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
+  }
+  
+  /* 特殊按鈕樣式 */
+  .app-store-btn {
+    background: linear-gradient(135deg, #000000 0%, #333333 100%) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .app-store-btn:hover {
+    background: linear-gradient(135deg, #333333 0%, #000000 100%) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
+  }
+  
+  .google-play-btn {
+    background: linear-gradient(135deg, #01875f 0%, #00c853 100%) !important;
+    box-shadow: 0 4px 15px rgba(1, 135, 95, 0.3) !important;
+  }
+  
+  .google-play-btn:hover {
+    background: linear-gradient(135deg, #00c853 0%, #01875f 100%) !important;
+    box-shadow: 0 8px 25px rgba(1, 135, 95, 0.4) !important;
+  }
+  
+  .business-plan-btn, .business-login-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
+    box-shadow: 0 4px 15px rgba(20, 59, 98, 0.25) !important;
+  }
+  
+  .business-plan-btn:hover, .business-login-btn:hover {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%) !important;
+    box-shadow: 0 8px 25px rgba(20, 59, 98, 0.35) !important;
+  }
 }

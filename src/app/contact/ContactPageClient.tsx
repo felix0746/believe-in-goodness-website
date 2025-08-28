@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import ContactFormModal from '@/components/ContactFormModal'; // 引入新的表單元件
 
@@ -8,10 +8,28 @@ export default function ContactPageClient() {
   const { t } = useTranslation();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('jobseekers'); // 預設顯示求職者頁籤
+  const [isNavSticky, setIsNavSticky] = useState(false);
+  const tabsNavRef = useRef<HTMLDivElement>(null);
 
   // 移除舊的 body scroll 邏輯，因為新元件會自己處理
   const openContactForm = () => setIsFormOpen(true);
   const closeContactForm = () => setIsFormOpen(false);
+
+  // 檢測導覽列是否處於 sticky 狀態
+  useEffect(() => {
+    const handleScroll = () => {
+      if (tabsNavRef.current) {
+        const rect = tabsNavRef.current.getBoundingClientRect();
+        const isSticky = rect.top <= 120; // 120px 是我們設定的 top 值
+        setIsNavSticky(isSticky);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // 初始檢查
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const address = t('address');
   // 改用 'search' API，這對於格式複雜的地址更為可靠
@@ -94,7 +112,10 @@ export default function ContactPageClient() {
             </div>
 
             {/* 桌面版左側頁籤導航 */}
-            <div className="app-tabs-nav">
+            <div 
+              ref={tabsNavRef}
+              className={`app-tabs-nav ${isNavSticky ? 'sticky-active' : ''}`}
+            >
               <button 
                 className={`app-tab-btn ${activeTab === 'jobseekers' ? 'active' : ''}`}
                 onClick={() => setActiveTab('jobseekers')}
@@ -159,11 +180,11 @@ export default function ContactPageClient() {
                 </ul>
                 <div className="app-buttons">
                   <button className="business-plan-btn">
-                    <i className="fab fa-info-circle"></i>
+                    <span className="button-icon">💼</span>
                     {t('appLearnBusinessPlan')}
                   </button>
                   <button className="business-login-btn">
-                    <i className="fas fa-sign-in-alt"></i>
+                    <span className="button-icon">🔐</span>
                     {t('appLoginBusiness')}
                   </button>
                 </div>
@@ -181,12 +202,12 @@ export default function ContactPageClient() {
                   <li>{t('appSchoolsFeature3')}</li>
                 </ul>
                 <div className="app-buttons">
-                  <button className="school-plan-btn">
-                    <i className="fab fa-info-circle"></i>
+                  <button className="business-plan-btn">
+                    <span className="button-icon">🏫</span>
                     {t('appLearnSchoolPlan')}
                   </button>
-                  <button className="school-login-btn">
-                    <i className="fas fa-sign-in-alt"></i>
+                  <button className="business-login-btn">
+                    <span className="button-icon">🔐</span>
                     {t('appLoginSchool')}
                   </button>
                 </div>
@@ -194,27 +215,6 @@ export default function ContactPageClient() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* 立即聯繫我們 */}
-      <section className="immediate-contact-section">
-          <div className="immediate-contact-box">
-              <h2>{t('contactImmediateTitle')}</h2>
-              <div className="immediate-contact-details">
-                  <div className="immediate-contact-item">
-                      <a href={`tel:${t('phone')}`}><i className="fas fa-phone-alt"></i> {t('phone')}</a>
-                  </div>
-                  <div className="immediate-contact-item">
-                      <a href={`mailto:${t('email')}`}><i className="fas fa-envelope"></i> {t('email')}</a>
-                  </div>
-              </div>
-              <div className="contact-action">
-                <button className="contact-form-btn" onClick={openContactForm}>
-                  <i className="fas fa-edit"></i>
-                  <span>{t('contactFormBtn')}</span>
-                </button>
-              </div>
-          </div>
       </section>
 
       {/* 我們的位置 */}
@@ -340,6 +340,14 @@ export default function ContactPageClient() {
                           <p>{t('transport')}</p>
                       </div>
                   </div>
+              </div>
+              
+              {/* 電腦版表單按鈕 */}
+              <div className="desktop-form-action">
+                  <button className="desktop-contact-form-btn" onClick={openContactForm}>
+                      <i className="fas fa-edit"></i>
+                      <span>{t('contactFormBtn')}</span>
+                  </button>
               </div>
           </div>
       </section>
