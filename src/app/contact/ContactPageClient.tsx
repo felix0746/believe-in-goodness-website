@@ -35,6 +35,11 @@ export default function ContactPageClient() {
   
   // 為不同語言版本提供更精確的地址格式
   const getPreciseAddress = () => {
+    // 檢查是否在瀏覽器環境中
+    if (typeof window === 'undefined') {
+      return '台北市中正區羅斯福路二段168號6樓之1'; // 伺服器端預設值
+    }
+    
     const currentLang = document.documentElement.lang || 'zh-Hant';
     
     // 根據語言提供更精確的地址格式
@@ -59,16 +64,18 @@ export default function ContactPageClient() {
   // 羅斯福路二段168號的大概座標：25.0330, 121.5654
   const googleMapsEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(preciseAddress)}&t=&z=18&ie=UTF8&iwloc=&output=embed`;
   
-  // 添加調試信息（開發時使用）
-  console.log('Current Language:', document.documentElement.lang);
-  console.log('Precise Address:', preciseAddress);
-  console.log('Google Maps Embed URL:', googleMapsEmbedUrl);
-  
-  // 嘗試使用更精確的地址格式
-  const alternativeAddress = '台北市中正區羅斯福路二段168號';
-  const alternativeEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(alternativeAddress)}&t=&z=18&ie=UTF8&iwloc=&output=embed`;
-  console.log('Alternative Address:', alternativeAddress);
-  console.log('Alternative Embed URL:', alternativeEmbedUrl);
+  // 添加調試信息（開發時使用，僅在瀏覽器環境中）
+  if (typeof window !== 'undefined') {
+    console.log('Current Language:', document.documentElement.lang);
+    console.log('Precise Address:', preciseAddress);
+    console.log('Google Maps Embed URL:', googleMapsEmbedUrl);
+    
+    // 嘗試使用更精確的地址格式
+    const alternativeAddress = '台北市中正區羅斯福路二段168號';
+    const alternativeEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(alternativeAddress)}&t=&z=18&ie=UTF8&iwloc=&output=embed`;
+    console.log('Alternative Address:', alternativeAddress);
+    console.log('Alternative Embed URL:', alternativeEmbedUrl);
+  }
 
   return (
     <main className="contact-page-main">
