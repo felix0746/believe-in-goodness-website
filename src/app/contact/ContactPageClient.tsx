@@ -7,6 +7,7 @@ import ContactFormModal from '@/components/ContactFormModal'; // 引入新的表
 export default function ContactPageClient() {
   const { t } = useTranslation();
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('jobseekers'); // 預設顯示求職者頁籤
 
   // 移除舊的 body scroll 邏輯，因為新元件會自己處理
   const openContactForm = () => setIsFormOpen(true);
@@ -28,30 +29,170 @@ export default function ContactPageClient() {
         </div>
       </section>
 
-      {/* 服務項目卡片 */}
+      {/* 核心價值區塊 */}
       <section className="contact-cards-section">
         <div className="container">
           <div className="services-grid">
-            {/* 卡片 1 */}
+            {/* 卡片 1 - 求職者 */}
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-lightbulb"></i></div>
+              <div className="service-icon">💡</div>
               <h3>{t('contactService1Title')}</h3>
               <p>{t('contactService1Desc')}</p>
             </div>
-            {/* 卡片 2 */}
+            {/* 卡片 2 - 企業 */}
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-chart-line"></i></div>
+              <div className="service-icon">📈</div>
               <h3>{t('contactService2Title')}</h3>
               <p>{t('contactService2Desc')}</p>
             </div>
-            {/* 卡片 3 */}
+            {/* 卡片 3 - 學校 */}
             <div className="service-card">
-              <div className="service-icon"><i className="fas fa-users"></i></div>
+              <div className="service-icon">👥</div>
               <h3>{t('contactService3Title')}</h3>
               <p>{t('contactService3Desc')}</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* App 功能詳解區塊 - 頁籤式設計 */}
+      <section className="app-features-section">
+        <div className="container">
+          <div className="app-ecosystem-header">
+            <h2>{t('appEcosystemTitle')}</h2>
+            <p className="app-ecosystem-subtitle">{t('appEcosystemSubtitle')}</p>
+          </div>
           
+          {/* 響應式頁籤佈局 */}
+          <div className="app-tabs-container">
+            {/* 手機版水平 Tab Bar */}
+            <div className="app-tabs-nav-mobile">
+              <button 
+                className={`app-tab-btn ${activeTab === 'jobseekers' ? 'active' : ''}`}
+                onClick={() => setActiveTab('jobseekers')}
+              >
+                <span className="tab-icon">💡</span>
+                <span className="tab-text">{t('appJobSeekersTitle')}</span>
+                <span className="tab-text-mobile">求職者</span>
+              </button>
+              <button 
+                className={`app-tab-btn ${activeTab === 'businesses' ? 'active' : ''}`}
+                onClick={() => setActiveTab('businesses')}
+              >
+                <span className="tab-icon">📈</span>
+                <span className="tab-text">{t('appBusinessesTitle')}</span>
+                <span className="tab-text-mobile">企業</span>
+              </button>
+              <button 
+                className={`app-tab-btn ${activeTab === 'schools' ? 'active' : ''}`}
+                onClick={() => setActiveTab('schools')}
+              >
+                <span className="tab-icon">👥</span>
+                <span className="tab-text">{t('appSchoolsTitle')}</span>
+                <span className="tab-text-mobile">學校</span>
+              </button>
+            </div>
+
+            {/* 桌面版左側頁籤導航 */}
+            <div className="app-tabs-nav">
+              <button 
+                className={`app-tab-btn ${activeTab === 'jobseekers' ? 'active' : ''}`}
+                onClick={() => setActiveTab('jobseekers')}
+              >
+                <span className="tab-icon">💡</span>
+                <span className="tab-text">{t('appJobSeekersTitle')}</span>
+                <span className="tab-text-mobile">求職者</span>
+              </button>
+              <button 
+                className={`app-tab-btn ${activeTab === 'businesses' ? 'active' : ''}`}
+                onClick={() => setActiveTab('businesses')}
+              >
+                <span className="tab-icon">📈</span>
+                <span className="tab-text">{t('appBusinessesTitle')}</span>
+                <span className="tab-text-mobile">企業</span>
+              </button>
+              <button 
+                className={`app-tab-btn ${activeTab === 'schools' ? 'active' : ''}`}
+                onClick={() => setActiveTab('schools')}
+              >
+                <span className="tab-icon">👥</span>
+                <span className="tab-text">{t('appSchoolsTitle')}</span>
+                <span className="tab-text-mobile">學校</span>
+              </button>
+            </div>
+            
+            {/* 頁籤內容區域 */}
+            <div className="app-tabs-content">
+              {/* 求職者頁籤 */}
+              <div className={`app-tab-panel ${activeTab === 'jobseekers' ? 'active' : ''}`}>
+                <div className="tab-panel-header">
+                  <h3>{t('appJobSeekersTitle')}</h3>
+                  <p className="tab-panel-subtitle">為求職者打造的安全透明平台</p>
+                </div>
+                <ul className="feature-list">
+                  <li>{t('appJobSeekersFeature1')}</li>
+                  <li>{t('appJobSeekersFeature2')}</li>
+                  <li>{t('appJobSeekersFeature3')}</li>
+                </ul>
+                <div className="app-buttons">
+                  <button className="app-store-btn">
+                    <i className="fab fa-apple"></i>
+                    {t('appDownloadAppStore')}
+                  </button>
+                  <button className="google-play-btn">
+                    <i className="fab fa-google-play"></i>
+                    {t('appDownloadGooglePlay')}
+                  </button>
+                </div>
+              </div>
+
+              {/* 企業頁籤 */}
+              <div className={`app-tab-panel ${activeTab === 'businesses' ? 'active' : ''}`}>
+                <div className="tab-panel-header">
+                  <h3>{t('appBusinessesTitle')}</h3>
+                  <p className="tab-panel-subtitle">為企業打造的全球人才媒合平台</p>
+                </div>
+                <ul className="feature-list">
+                  <li>{t('appBusinessesFeature1')}</li>
+                  <li>{t('appBusinessesFeature2')}</li>
+                  <li>{t('appBusinessesFeature3')}</li>
+                </ul>
+                <div className="app-buttons">
+                  <button className="business-plan-btn">
+                    <i className="fab fa-info-circle"></i>
+                    {t('appLearnBusinessPlan')}
+                  </button>
+                  <button className="business-login-btn">
+                    <i className="fas fa-sign-in-alt"></i>
+                    {t('appLoginBusiness')}
+                  </button>
+                </div>
+              </div>
+
+              {/* 學校頁籤 */}
+              <div className={`app-tab-panel ${activeTab === 'schools' ? 'active' : ''}`}>
+                <div className="tab-panel-header">
+                  <h3>{t('appSchoolsTitle')}</h3>
+                  <p className="tab-panel-subtitle">為學校打造的高效產學合作平台</p>
+                </div>
+                <ul className="feature-list">
+                  <li>{t('appSchoolsFeature1')}</li>
+                  <li>{t('appSchoolsFeature2')}</li>
+                  <li>{t('appSchoolsFeature3')}</li>
+                </ul>
+                <div className="app-buttons">
+                  <button className="school-plan-btn">
+                    <i className="fab fa-info-circle"></i>
+                    {t('appLearnSchoolPlan')}
+                  </button>
+                  <button className="school-login-btn">
+                    <i className="fas fa-sign-in-alt"></i>
+                    {t('appLoginSchool')}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -93,6 +234,57 @@ export default function ContactPageClient() {
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade">
                   </iframe>
+              </div>
+          </div>
+          
+          {/* 手機版整合聯絡資訊 */}
+          <div className="mobile-contact-info">
+              <h3>聯絡資訊</h3>
+              <div className="mobile-contact-grid">
+                  <div className="mobile-contact-item">
+                      <div className="mobile-contact-icon">
+                          <i className="fas fa-map-marker-alt"></i>
+                      </div>
+                      <div className="mobile-contact-text">
+                          <h4>地址</h4>
+                          <p>{t('address')}</p>
+                      </div>
+                  </div>
+                  <div className="mobile-contact-item">
+                      <div className="mobile-contact-icon">
+                          <i className="fas fa-phone-alt"></i>
+                      </div>
+                      <div className="mobile-contact-text">
+                          <h4>電話</h4>
+                          <a href={`tel:${t('phone')}`}>{t('phone')}</a>
+                      </div>
+                  </div>
+                  <div className="mobile-contact-item">
+                      <div className="mobile-contact-icon">
+                          <i className="fas fa-envelope"></i>
+                      </div>
+                      <div className="mobile-contact-text">
+                          <h4>電子郵件</h4>
+                          <a href={`mailto:${t('email')}`}>{t('email')}</a>
+                      </div>
+                  </div>
+                  <div className="mobile-contact-item">
+                      <div className="mobile-contact-icon">
+                          <i className="fas fa-clock"></i>
+                      </div>
+                      <div className="mobile-contact-text">
+                          <h4>營業時間</h4>
+                          <p>{t('hours')}</p>
+                      </div>
+                  </div>
+              </div>
+              
+              {/* 手機版線上表單按鈕 */}
+              <div className="mobile-form-action">
+                  <button className="mobile-contact-form-btn" onClick={openContactForm}>
+                      <i className="fas fa-edit"></i>
+                      <span>{t('contactFormBtn')}</span>
+                  </button>
               </div>
           </div>
       </section>
