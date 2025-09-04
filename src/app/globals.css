@@ -2782,15 +2782,17 @@ html[lang="vi"] .location-section::after {
   }
 }
 
-@media (min-width: 1024px) {
-  .container {
-    padding: 0 3rem;
-  }
-  
+@media (min-width: 769px) {
   /* 桌面版頁尾標題底線重置為左對齊 */
   .footer-column-title::after {
     left: 0 !important;
     transform: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 3rem;
   }
 }
 
