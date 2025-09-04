@@ -2783,7 +2783,11 @@ html[lang="vi"] .location-section::after {
 }
 
 @media (min-width: 769px) {
-  /* 桌面版頁尾標題底線重置為左對齊 */
+  /* 桌面版頁尾重置為左對齊 */
+  .footer-column {
+    text-align: left !important;
+  }
+  
   .footer-column-title::after {
     left: 0 !important;
     transform: none !important;
