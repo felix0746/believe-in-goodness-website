@@ -2786,6 +2786,12 @@ html[lang="vi"] .location-section::after {
   .container {
     padding: 0 3rem;
   }
+  
+  /* 桌面版頁尾標題底線重置為左對齊 */
+  .footer-column-title::after {
+    left: 0 !important;
+    transform: none !important;
+  }
 }
 
 /* 頁面整體優化 */
