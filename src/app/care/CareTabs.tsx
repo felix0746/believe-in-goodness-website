@@ -33,7 +33,7 @@ const domesticContent = [
   {
     titleKey: 'Silver-haired people',
     textKey: 'Silver-haired peopleText',
-    image: '/images/Minimalist Pizza Photo Blog Banner.png',
+    image: '/images/webp/Untitled (Website).webp',
     alt: '一位長者正在專注地製作食物',
   },
 ];
