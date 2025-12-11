@@ -1,9 +1,6 @@
 'use client';
 
-import { useTranslation } from '@/hooks/useTranslation';
-
 export default function FAQPage() {
-  const { t } = useTranslation();
   
   return (
     <main className="faq-page">

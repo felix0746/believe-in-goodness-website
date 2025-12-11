@@ -1,9 +1,6 @@
 'use client';
 
-import { useTranslation } from '@/hooks/useTranslation';
-
 export default function TermsOfUsePage() {
-  const { t } = useTranslation();
   
   return (
     <main className="terms-of-use-page">
